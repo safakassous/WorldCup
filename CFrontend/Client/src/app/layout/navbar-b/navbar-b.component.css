@@ -1,0 +1,20 @@
+nav{
+    margin-top: 2px;
+}
+
+.title{
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+    color: white
+}
+.title2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    text-align: center;
+    color: rgb(46, 45, 45);
+    font-weight: bold;
+}
+.nav-item{
+    margin-left: 20px;
+}

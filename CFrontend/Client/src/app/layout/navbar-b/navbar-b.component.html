@@ -1,0 +1,36 @@
+
+  <nav class="navbar navbar-expand-sm  navbar-dark bg-primary" *ngIf="isLoggedIn">
+
+    <ul class="navbar-nav" >
+        <li>
+            <div class="title">WORLD CUP</div>
+            <div class="title2">QATAR 2022</div>
+        </li>
+       <li class="nav-item">
+        <button class="m-1 btn btn-outline-dark" Button 
+        [routerLink]="['paiement/:id']">
+          CLASSEMENT
+        </button>
+       </li>
+      <li class="nav-item">
+        <button class="m-1 btn btn-outline-dark" Button 
+        [routerLink]="['/register']">
+          EQUIPES
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="m-1 btn btn-outline-dark" Button [routerLink]="['/register']">
+         JOUEURS
+        </button>
+      </li>
+      <li class="nav-item">
+          <button class="m-1 btn btn-outline-dark" Button [routerLink]="['/billets']">
+           BILLETERIE
+          </button>
+        </li>
+    </ul>
+  </nav>
+  
+                  
+
+  
