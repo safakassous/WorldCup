@@ -1,3 +1,4 @@
+import { AddJoueurComponent } from './components/add-joueur/add-joueur.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: BoardUserComponent },
   { path: 'admin', component: BoardAdminComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {path: 'addJoueur',component: AddJoueurComponent},
 ];
 
 @NgModule({
