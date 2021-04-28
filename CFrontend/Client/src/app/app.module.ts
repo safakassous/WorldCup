@@ -16,6 +16,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
 import { CommonModule } from '@angular/common';
 import { AddJoueurComponent } from './components/add-joueur/add-joueur.component';
+import { BilletListComponent } from './components/billet-list/billet-list.component';
 
 
 
@@ -30,7 +31,8 @@ import { AddJoueurComponent } from './components/add-joueur/add-joueur.component
     BoardUserComponent,
     NavbarComponent,
     NavbarBComponent,
-    AddJoueurComponent
+    AddJoueurComponent,
+    BilletListComponent
   ],
   imports: [
     BrowserModule,
