@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,11 +61,15 @@ public class ImageUploadController {
                 decompressBytes(retrievedImage.get().getPicByte()),joueurId);
 
         return img;
-
     }
 
+    @DeleteMapping("/deleteImage/{idJoueur}")
+	public ResponseEntity<?> deleteJoueur(@PathVariable(value = "idJoueur") Long joueurId) {
+		ImageModel image = imageRepository.findById(joueurId).orElseThrow(null);
+		imageRepository.delete(image);
+	    return ResponseEntity.ok().build();
+	}
     // compress the image bytes before storing it in the database
-
     public static byte[] compressBytes(byte[] data) {
 
         Deflater deflater = new Deflater();
@@ -110,4 +115,5 @@ public class ImageUploadController {
 
         return outputStream.toByteArray();
     }
+  
 }

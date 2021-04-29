@@ -27,10 +27,10 @@
                 <select class="form-select " class="select" name="poste" id="poste" formControlName="poste"
                     class="form-control" (change)="selectChangePoste($event)">
                     <option [selected]=true>Choisir un poste</option>
-                    <option value="Attaqueur">Attaquant</option>
-                    <option value="Deffenseur">Déffenseur</option>
-                    <option value="Deffenseur">Milieu de terrain</option>
-                    <option value="Deffenseur">Gardient de but</option>
+                    <option value="Attaquant">Attaquant</option>
+                    <option value="Déffenseur">Déffenseur</option>
+                    <option value="Milieu de terrain">Milieu de terrain</option>
+                    <option value="Gardient de but">Gardient de but</option>
                 </select>
                 <div *ngIf="poste?.touched">
                     <small *ngIf="poste?.errors?.required" class="text-danger">Ce champ est obligatoire</small>

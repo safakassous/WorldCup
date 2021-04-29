@@ -14,11 +14,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
-import { CommonModule } from '@angular/common';
 import { AddJoueurComponent } from './components/add-joueur/add-joueur.component';
+import { ListJoueurComponent } from './components/list-joueur/list-joueur.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BilletListComponent } from './components/billet-list/billet-list.component';
-
-
 
 @NgModule({
   declarations: [
@@ -32,6 +31,7 @@ import { BilletListComponent } from './components/billet-list/billet-list.compon
     NavbarComponent,
     NavbarBComponent,
     AddJoueurComponent,
+    ListJoueurComponent,
     BilletListComponent
   ],
   imports: [
@@ -40,6 +40,7 @@ import { BilletListComponent } from './components/billet-list/billet-list.compon
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgbModule,
     
   ],
   providers: [authInterceptorProviders],

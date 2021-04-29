@@ -4,7 +4,7 @@ export class Joueur {
         private  nom?:String,
         private  prenom?:String,
         private  poste?:String,
-        //private image_id?:String,
+        private idImage?:number,
     ){}
 
 }
