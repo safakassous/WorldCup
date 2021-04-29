@@ -17,8 +17,7 @@ import { BoardUserComponent } from './components/board-user/board-user.component
 import { AddJoueurComponent } from './components/add-joueur/add-joueur.component';
 import { ListJoueurComponent } from './components/list-joueur/list-joueur.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
+import { BilletListComponent } from './components/billet-list/billet-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavbarComponent,
     NavbarBComponent,
     AddJoueurComponent,
-    ListJoueurComponent
+    ListJoueurComponent,
+    BilletListComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
+import { BilletListComponent } from './components/billet-list/billet-list.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,9 @@ const routes: Routes = [
   { path: 'admin', component: BoardAdminComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'addJoueur',component: AddJoueurComponent},
-  {path: 'listJoueurs',component: ListJoueurComponent}
+  {path: 'listJoueurs',component: ListJoueurComponent},
+  {path: 'billets',component: BilletListComponent},
+
 ];
 
 @NgModule({
