@@ -14,8 +14,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
-import { CommonModule } from '@angular/common';
 import { AddJoueurComponent } from './components/add-joueur/add-joueur.component';
+import { ListJoueurComponent } from './components/list-joueur/list-joueur.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -30,7 +31,8 @@ import { AddJoueurComponent } from './components/add-joueur/add-joueur.component
     BoardUserComponent,
     NavbarComponent,
     NavbarBComponent,
-    AddJoueurComponent
+    AddJoueurComponent,
+    ListJoueurComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,7 @@ import { AddJoueurComponent } from './components/add-joueur/add-joueur.component
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgbModule,
     
   ],
   providers: [authInterceptorProviders],

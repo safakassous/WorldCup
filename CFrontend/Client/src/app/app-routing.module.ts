@@ -1,9 +1,7 @@
+import { ListJoueurComponent } from './components/list-joueur/list-joueur.component';
 import { AddJoueurComponent } from './components/add-joueur/add-joueur.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-
-
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -21,6 +19,7 @@ const routes: Routes = [
   { path: 'admin', component: BoardAdminComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'addJoueur',component: AddJoueurComponent},
+  {path: 'listJoueurs',component: ListJoueurComponent}
 ];
 
 @NgModule({

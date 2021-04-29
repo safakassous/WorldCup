@@ -1,0 +1,84 @@
+<div class="container">
+    <hr class="hr">
+    <h2 class="text-center">LISTE DES JOUEURS</h2>
+    <hr class="hr">
+    <div class="row">
+        <div class="card" *ngFor="let joueur of joueurs">
+            <img class="card-img-top" *ngIf="joueur.idImage==1" [src]=joueur.retrievedImage>
+            <img class="card-img-top" *ngIf="joueur.idImage==0" src="../../../../assets/profil.png">
+            <div class="card-body">
+                <h5 class="card-title">{{joueur.nom}} {{joueur.prenom}}</h5>
+                <p class="card-text">{{joueur.poste}}</p>
+                <div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="edit" (click)="openModal(editJoueurModal, joueur)"> <i class="fa fa-edit"
+                            aria-hidden="true"></i></div>
+                    <div (click)="supprimer(joueur.idJoueur)" class="trash"> <i class="fa fa-trash"
+                            aria-hidden="true"></i></div>
+                </div>
+            </div>
+            <ng-template #editJoueurModal let-modal>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editJoueurForm">MODIFIER JOUEUR</h5>
+                    <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form [formGroup]="editJoueurForm" (ngSubmit)="onSubmit(joueur.idJoueur)">
+                        <div class="form-group row">
+                            <label for="nom" class="col-sm-4 col-form-label">Nom : </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" formControlName="nom" id="nom">
+                                <div *ngIf="nom?.touched">
+                                    <small *ngIf="nom?.errors?.required" class="text-danger">Ce champ est
+                                        obligatoire</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="prenom" class="col-sm-4 col-form-label">Prénom : </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" formControlName="prenom" id="prenom">
+                                <div *ngIf="prenom?.touched">
+                                    <small *ngIf="prenom?.errors?.required" class="text-danger">Ce champ est
+                                        obligatoire</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-groupe row">
+
+                            <label for="poste" class="lab" class="col-sm-4 col-form-label">Poste :</label>
+                            <div class="col-sm-8">
+                                <select class=" form-select " name="poste" id="poste" formControlName="poste"
+                                    class="form-control" (change)="selectChangePoste($event)">
+                                    <option>Choisir un poste</option>
+                                    <option value="Attaquant">Attaquant</option>
+                                    <option value="Déffenseur">Déffenseur</option>
+                                    <option value="Milieu de terrain">Milieu de terrain</option>
+                                    <option value="Gardient de but">Gardient de but</option>
+                                </select>
+                                <div *ngIf="poste?.touched">
+                                    <small *ngIf="poste?.errors?.required" class="text-danger">Ce champ est
+                                        obligatoire</small>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-warning">ENREGISTRER</button>
+                            <button type="button" class="btn btn-danger" (click)="modal.dismiss()">FERMER</button>
+                        </div>
+                    </form>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <br>
+    <br>
+</div>
