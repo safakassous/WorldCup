@@ -1,42 +1,46 @@
-<div class="container" *ngIf="currentUser; else loggedOut" style="margin-top: 50px;">
-  <header class="jumbotron">
+<div class="container" *ngIf="currentUser; else loggedOut" style="margin-top: 50px; height: auto;" >
+  <header class="jumbotron bg-light">
     <h3>
-     Bienvenue <strong>{{ currentUser.username }}</strong> sur votre espace personnel.
+      Bienvenue <strong>{{ currentUser.username }}</strong> sur votre espace personnel.
     </h3>
   </header>
-  <div class="p-3 mb-2 bg-light text-dark" >
+  <div class="p-3 mb-2 ">
 
     <strong>Nom :</strong>
     <ul>
-    <li>
-      {{User.nom}}
-  </li> 
-</ul>
+      <li>
+        {{User.nom}}
+      </li>
+    </ul>
 
 
-    <strong>Prénom :</strong> 
+    <strong>Prénom :</strong>
     <ul>
-    <li>
+      <li>
         {{User.prenom}}
-    </li> 
-  </ul> 
- 
-    <strong>Date de naissance :</strong>
-    <ul>   
-    <li>
-      {{User.dateN}}
-  </li> 
-  </ul>
- 
+      </li>
+    </ul>
 
-  <strong>Roles :</strong>
-  <ul>
-    <li *ngFor="let role of currentUser.roles">
-      {{ role }}
-    </li>
-  </ul>
+    <strong>Date de naissance :</strong>
+    <ul>
+      <li>
+        {{User.dateN}}
+      </li>
+    </ul>
+
+
+    <strong>Roles :</strong>
+    <ul>
+      <li *ngFor="let role of currentUser.roles">
+        {{ role }}
+      </li>
+    </ul>
+    <br>
+ 
+  </div>
+ 
 </div>
-</div>
+
 
 <ng-template #loggedOut>
   Please login.

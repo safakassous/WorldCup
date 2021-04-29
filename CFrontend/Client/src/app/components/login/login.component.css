@@ -16,4 +16,7 @@
 input {
         border-left: 5px solid #1589FF;
     }
+    .alert {
+        margin-top:2%;
+    }
   

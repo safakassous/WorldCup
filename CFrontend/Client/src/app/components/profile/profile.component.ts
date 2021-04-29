@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { UserService } from 'src/app/_services/user.service';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -11,7 +13,13 @@ import { UserService } from 'src/app/_services/user.service';
 export class ProfileComponent implements OnInit {
   currentUser: any;
   User: any;
-  constructor(private token: TokenStorageService, private userService: UserService) { }
+  user: any;
+
+  // tslint:disable-next-line:max-line-length
+  constructor(private token: TokenStorageService, private userService: UserService, private fb: FormBuilder, private modalService: NgbModal ) { }
+
+
+
 
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
@@ -20,4 +28,6 @@ export class ProfileComponent implements OnInit {
       this.User = data;
     });
   }
+
+
 }

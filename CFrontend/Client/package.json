@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~11.2.0",
     "@angular/router": "~11.2.0",
     "@auth0/angular-jwt": "^5.0.2",
+    "@ng-bootstrap/ng-bootstrap": "^9.1.0",
     "angular-reactive-form": "^1.0.0",
     "jwt-decode": "^3.1.2",
     "ng-bootstrap-form-validation": "^9.0.1",

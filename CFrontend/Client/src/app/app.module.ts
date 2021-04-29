@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { authInterceptorProviders } from './_helpers/auth.service';
@@ -16,6 +16,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
 import { CommonModule } from '@angular/common';
 import { AddJoueurComponent } from './components/add-joueur/add-joueur.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -38,7 +40,8 @@ import { AddJoueurComponent } from './components/add-joueur/add-joueur.component
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    
+    NgbModule
+
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

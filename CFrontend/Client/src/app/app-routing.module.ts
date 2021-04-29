@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  {path: 'addJoueur',component: AddJoueurComponent},
+  {path: 'addJoueur', component: AddJoueurComponent},
 ];
 
 @NgModule({
