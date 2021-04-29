@@ -14,12 +14,17 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
-import { CommonModule } from '@angular/common';
 import { AddJoueurComponent } from './components/add-joueur/add-joueur.component';
+<<<<<<< HEAD
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
+=======
+import { ListJoueurComponent } from './components/list-joueur/list-joueur.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BilletListComponent } from './components/billet-list/billet-list.component';
+>>>>>>> 14b3de2cfeae1d93b55743befa30631330667515
 
 @NgModule({
   declarations: [
@@ -32,7 +37,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BoardUserComponent,
     NavbarComponent,
     NavbarBComponent,
-    AddJoueurComponent
+    AddJoueurComponent,
+    ListJoueurComponent,
+    BilletListComponent
   ],
   imports: [
     BrowserModule,
@@ -40,8 +47,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+<<<<<<< HEAD
     NgbModule
 
+=======
+    NgbModule,
+    
+>>>>>>> 14b3de2cfeae1d93b55743befa30631330667515
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

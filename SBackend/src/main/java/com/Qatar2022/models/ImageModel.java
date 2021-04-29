@@ -8,16 +8,16 @@ public class ImageModel {
 
     @Id
     private Long id;
-
     private String name;
     private String type;
-    @Column(name = "picByte", length = 1000)
+    @Column(name = "picByte", length = 10000000)
     private byte[] picByte;
 
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id", referencedColumnName = "idJoueur")
     private Joueur joueur;
+
     public ImageModel() {
         super();
     }
