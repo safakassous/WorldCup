@@ -19,14 +19,12 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-<<<<<<< HEAD
-  {path: 'addJoueur', component: AddJoueurComponent},
-=======
-  {path: 'addJoueur',component: AddJoueurComponent},
-  {path: 'listJoueurs',component: ListJoueurComponent},
-  {path: 'billets',component: BilletListComponent},
 
->>>>>>> 14b3de2cfeae1d93b55743befa30631330667515
+  {path: 'addJoueur', component: AddJoueurComponent},
+  {path: 'listJoueurs', component: ListJoueurComponent},
+  {path: 'billets', component: BilletListComponent},
+
+
 ];
 
 @NgModule({
