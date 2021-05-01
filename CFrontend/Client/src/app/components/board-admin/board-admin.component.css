@@ -1,12 +1,94 @@
+@import "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
+.trash {  
+  
+    color: red;
+    font-size: 30px;  
+ 
+}   
+
 .container {
-    margin-top: 2%;
+  
+    left: 20%;
+    right: 20%;
+    margin-top: 60px;
+}
+.card{
+    width: 15rem;
+    margin-right: 1%;   
+    border-color: #1589FF;
+}
+.row{
+    margin-left:10%;
+    margin-right: 5%;
+    
 }
 .text-center{
-    color:rgb(46, 45, 45);
     font-family: "Gill Sans", sans-serif;
     font-weight: bold;
+    color:#1589FF; 
 }
 th {
     color: #1589FF;
 }
+.head {
+    background-color: #1589FF;
+    color: white;
+    font-weight: bold;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 #1589FF;
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    margin-top: 30px;
+  }
   
+.title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+
+  
+.editbtn {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #1589FF;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+.jumbotron {
+    background-color:whitesmoke;
+    font-family: "Gill Sans", sans-serif;
+    color: #1589FF; 
+    font-weight: bold;
+}
+.modal-title {
+    color: #1589FF; 
+}
+
+.trash {  
+    margin-left: 8%;
+    color: red;
+    font-size: 30px;  
+}
+.edit {
+    margin-left: 27%;
+    color: black;
+    font-size: 32px;  
+}
+.footer{
+    background-color: whitesmoke;
+}
+
+
+
+

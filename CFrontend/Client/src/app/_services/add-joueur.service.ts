@@ -24,7 +24,4 @@ export class AddJoueurService {
     return this.http.post(this.addImageUrl+id_joueur,imageJoueur)
   }
 
-  getJoueur(id: any | null){
-    return this.http.get("http://localhost:8081/api/getImage/"+id)
-  }
 }

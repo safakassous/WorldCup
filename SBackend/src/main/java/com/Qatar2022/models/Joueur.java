@@ -13,6 +13,7 @@ public class Joueur {
 	private String nom;
 	private String prenom;
 	private String poste;
+	private Long idImage;
 	
 	@OneToOne(mappedBy = "joueur")
     private ImageModel image;
@@ -21,13 +22,22 @@ public class Joueur {
 	}
 
 
-	public Joueur(String nom, String prenom, String poste) {
+	public Joueur(String nom, String prenom, String poste,Long idImage) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.poste = poste;
+		this.idImage=idImage;
 	}
 
+	public Long getIdImage() {
+		return idImage;
+	}
+
+
+	public void setIdImage(Long idImage) {
+		this.idImage = idImage;
+	}
 
 	public Long getIdJoueur() {
 		return idJoueur;

@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { authInterceptorProviders } from './_helpers/auth.service';
@@ -14,14 +14,16 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
-import { CommonModule } from '@angular/common';
 import { AddJoueurComponent } from './components/add-joueur/add-joueur.component';
+
 import { BilletListComponent } from './components/billet-list/billet-list.component';
 import { AddAcheteurComponent } from './components/add-acheteur/add-acheteur.component';
 import { PaiementBilletComponent } from './components/paiement-billet/paiement-billet.component';
 import { ConfirmationAcheteurComponent } from './confirmation-acheteur/confirmation-acheteur.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
+import { ListJoueurComponent } from './components/list-joueur/list-joueur.component';
+
 
 
 @NgModule({
@@ -39,7 +41,10 @@ import { ToastrModule } from 'ngx-toastr';
     BilletListComponent,
     AddAcheteurComponent,
     PaiementBilletComponent,
-    ConfirmationAcheteurComponent
+    ConfirmationAcheteurComponent,
+    ListJoueurComponent,
+    BilletListComponent
+
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,6 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     NgbModule,
     ToastrModule.forRoot(), 
-
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

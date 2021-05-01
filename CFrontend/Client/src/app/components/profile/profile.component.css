@@ -1,9 +1,20 @@
 .jumbotron {
-    background-color:#1589FF;
+    background-color:whitesmoke;
     font-family: "Gill Sans", sans-serif;
-    color: white;
+    color: #1589FF; 
     font-weight: bold;
 }
-.body {
-    background-color:#1589FF; 
+.modal-title {
+    color: #1589FF; 
+}
+
+.p-3 {
+    background-color: #1589ff; 
+    color: white; 
+}
+
+.btn {
+    float: right;
+    margin-top: -3%;
+    font-weight: bold;
 }
