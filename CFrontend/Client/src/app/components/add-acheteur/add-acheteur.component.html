@@ -1,0 +1,119 @@
+<div class="col-md-6">
+    <hr class="hr">
+    <h2 class="text-center">FORMULAIRE DE PAIEMENT</h2>
+    <hr class="hr">
+    <h3 class="title1">Vous êtes en connexion sécurisée avec le serveur de paiement.</h3>
+    <h3 class="title2">DONNÉES DE LA TRANSACTION: </h3>
+    <h6 class="title3">Catégorie billet : {{billet.categorieBillet}} <b> </b> </h6>
+    <h6 class="title3">Prix billet : {{billet.prixBillet}} <b> </b> </h6>
+    <h3 class="title2">DONNÉES RELATIVES À VOTRE CARTE BANCAIRE: </h3>
+
+    <form [formGroup]="addAcheteurForm" (ngSubmit)="openModal(confirmModal)">
+        <div class="form-row">
+            <div class="form-group col-6">
+                <label for="nom">Votre nom :</label>
+                <input type="text" name="nom" id="nom" formControlName="nom" class="form-control">
+                <div *ngIf=" nom?.touched && nom?.invalid">
+                    <small *ngIf="nom?.errors?.required" class="text-danger">Le nom est requis<br></small>
+                    <small *ngIf="nom?.errors?.pattern" class="text-danger">Nom invalide<br></small>
+                    <small *ngIf="nom?.errors?.minlength" class="text-danger">Le nom doit contenir au moins deux
+                        caractères</small>
+                </div>
+            </div>
+
+            <div class="form-group col-6">
+                <label for="prenom">Votre prenom :</label>
+                <input type="text" name="prenom" id="prenom" formControlName="prenom" class="form-control">
+                <div *ngIf="prenom?.touched && prenom?.invalid">
+                    <small *ngIf="prenom?.errors?.required" class="text-danger">Le prénom est requis<br></small>
+                    <small *ngIf="prenom?.errors?.pattern" class="text-danger">Prénom invalide<br></small>
+                    <small *ngIf="prenom?.errors?.minlength" class="text-danger">Le prénom doit contenir au moins deux
+                        caractères</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="numcarte">Numero de votre carte bancaire :</label>
+                <input type="text" name="numcarte" id="numcarte" formControlName="numcarte" class="form-control">
+                <div *ngIf="numcarte?.touched && numcarte?.invalid">
+                    <small *ngIf="numcarte?.errors?.required" class="text-danger">Le numéro de la carte est
+                        requis<br></small>
+                    <small *ngIf="numcarte?.errors?.pattern" class="text-danger"> Le numéro de la carte est
+                        invalide<br></small>
+                    <small *ngIf="numcarte?.errors?.minlength" class="text-danger">Le numéro de la carte doit contenir
+                        au moins 8 caractères</small>
+                    <small *ngIf="numcarte?.errors?.maxlength" class="text-danger">Le numéro de la carte doit contenir
+                        au maximum 8 caractères </small>
+                </div>
+            </div>
+            <div class="form-group col">
+                <label for="cvc2">CVC2 :</label>
+                <input type="text" name="cvc2" id="cvc2" formControlName="cvc2" class="form-control">
+                <div *ngIf="cvc2?.touched && cvc2?.invalid">
+                    <small *ngIf="cvc2?.errors?.required" class="text-danger">Le CVC2 est requis<br></small>
+                    <small *ngIf="cvc2?.errors?.pattern" class="text-danger"> Le CVC2 est invalide<br></small>
+                    <small *ngIf="cvc2?.errors?.minlength" class="text-danger">Le CVC2 doit contenir au moins 3
+                        caractères</small>
+                    <small *ngIf="cvc2?.errors?.maxlength" class="text-danger">Le CVC2 doit contenir au maximum 4
+                        caractères </small>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="e_mail">Votre email :</label>
+                <input type="text" name="e_mail" id="e_mail" formControlName="e_mail" class="form-control">
+                <div *ngIf="e_mail?.touched && e_mail?.invalid">
+                    <small *ngIf="e_mail?.errors?.required" class="text-danger">L'email est requis<br></small>
+                    <small *ngIf="e_mail?.errors?.email" class="text-danger"> L'email est invalide<br></small>
+                </div>
+            </div>
+            <div class="form-group col">
+                <label for="dateexp">La date d'expiration de votre carte bancaire :</label>
+                <input type="date" name="dateexp" id="dateexp" formControlName="dateexp" class="form-control">
+                <div *ngIf="dateexp?.touched && dateexp?.invalid">
+                    <small *ngIf="dateexp?.errors?.required" class="text-danger">La date d'exprissation est
+                        requise<br></small>
+                    <small *ngIf="dateexp?.errors?.email" class="text-danger"> La date d'exprissation est
+                        invalide<br></small>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col">
+                <input type="submit" value="Payer" [disabled]="addAcheteurForm.invalid" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
+</div>
+
+<ng-template #confirmModal let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title text-center" id="confirmForm">CONFIRMER VOTRE TRANSACTION</h5>
+        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="confirmForm" (ngSubmit)="addAcheteur()">
+            <label for="code" class="col-sm-4 col-form-label">Code : </label>
+
+            <div class="form-group row">
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" formControlName="code" id="code">
+                    <div *ngIf="code?.touched">
+                        <small *ngIf="code?.errors?.required" class="text-danger">Ce champ est obligatoire</small>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-dark" >CONFIRMER</button>
+                <button type="button" class="btn btn-danger" (click)="modal.dismiss()">FERMER</button>
+            </div>
+        </form>
+    </div>
+</ng-template>

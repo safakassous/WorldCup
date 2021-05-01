@@ -17,7 +17,11 @@ import { BoardUserComponent } from './components/board-user/board-user.component
 import { CommonModule } from '@angular/common';
 import { AddJoueurComponent } from './components/add-joueur/add-joueur.component';
 import { BilletListComponent } from './components/billet-list/billet-list.component';
-
+import { AddAcheteurComponent } from './components/add-acheteur/add-acheteur.component';
+import { PaiementBilletComponent } from './components/paiement-billet/paiement-billet.component';
+import { ConfirmationAcheteurComponent } from './confirmation-acheteur/confirmation-acheteur.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -32,7 +36,10 @@ import { BilletListComponent } from './components/billet-list/billet-list.compon
     NavbarComponent,
     NavbarBComponent,
     AddJoueurComponent,
-    BilletListComponent
+    BilletListComponent,
+    AddAcheteurComponent,
+    PaiementBilletComponent,
+    ConfirmationAcheteurComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,9 @@ import { BilletListComponent } from './components/billet-list/billet-list.compon
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    
+    NgbModule,
+    ToastrModule.forRoot(), 
+
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

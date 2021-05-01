@@ -1,0 +1,34 @@
+
+
+<!--div style="align-content: center; text-align: center;">
+
+  <h2>Vous etes en connexion sécurisée avec le serveur de paiement</h2>
+  <h3>Données de transaction: un billet de {{billet.categorieBillet}} pour un prix de  {{billet.prixBillet}} dt</h3>
+  </div-->     
+
+  <div class="col-md-6" >
+    <hr class="hr">
+    <h2 class="text-center">FORMULAIRE DE PAIEMENT</h2>
+    <hr class="hr">
+    <h3 class="title1">Vous êtes en connexion sécurisée avec le serveur de paiement.</h3>
+    <h3 class="title2">DONNÉES DE LA TRANSACTION: </h3>
+    <h6 class="title3">Catégorie billet : <b> {{billet.categorieBillet}}</b> </h6>
+    <h6 class="title3">Prix billet : <b> {{billet.prixBillet}}</b> </h6>
+    <h3 class="title2">DONNÉES RELATIVES À VOTRE CARTE BANCAIRE: </h3>
+
+    <form class="form-horizontal">
+
+      <div class="form-group">
+        <div class="col-sm-12">
+          <label for="email" class="control-label">Email</label>
+          <input type="text" id="email" class="form-control" formControlName="email">
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+        Submit
+      </button>
+    
+    </form>
+
+  </div>

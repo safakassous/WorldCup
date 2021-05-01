@@ -11,6 +11,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
 import { BilletListComponent } from './components/billet-list/billet-list.component';
+import { AddAcheteurComponent } from './components/add-acheteur/add-acheteur.component';
+import { ConfirmationAcheteurComponent } from './confirmation-acheteur/confirmation-acheteur.component';
 
 
 const routes: Routes = [
@@ -23,6 +25,10 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'addJoueur',component: AddJoueurComponent},
   {path: 'billets',component: BilletListComponent},
+  {path: "paiement/:id", component : AddAcheteurComponent},
+  {path: "addAcheteur", component : AddAcheteurComponent},
+  {path: "confirmation", component : ConfirmationAcheteurComponent},
+
 
 ];
 
