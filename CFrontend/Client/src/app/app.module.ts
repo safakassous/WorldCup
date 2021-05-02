@@ -15,13 +15,15 @@ import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
 import { AddJoueurComponent } from './components/add-joueur/add-joueur.component';
-
-
-
 import { ListJoueurComponent } from './components/list-joueur/list-joueur.component';
-
 import { BilletListComponent } from './components/billet-list/billet-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddAcheteurComponent } from './components/add-acheteur/add-acheteur.component';
+import { PaiementBilletComponent } from './components/paiement-billet/paiement-billet.component';
+import { ConfirmationAcheteurComponent } from './confirmation-acheteur/confirmation-acheteur.component';
+import { ToastrModule } from 'ngx-toastr';
+
+
 
 
 @NgModule({
@@ -36,8 +38,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavbarComponent,
     NavbarBComponent,
     AddJoueurComponent,
+    BilletListComponent,
+    AddAcheteurComponent,
+    PaiementBilletComponent,
+    ConfirmationAcheteurComponent,
     ListJoueurComponent,
     BilletListComponent
+
   ],
   imports: [
     BrowserModule,
@@ -45,7 +52,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    ToastrModule.forRoot(),
 
   ],
   providers: [authInterceptorProviders],

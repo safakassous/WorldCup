@@ -82,12 +82,33 @@ th {
 }
 .edit {
     margin-left: 27%;
-    color: black;
+    color: #1589FF;
     font-size: 32px;  
 }
 .footer{
     background-color: whitesmoke;
 }
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #1589FF;
+    padding: 8px;
+  }
+  
+  #customers tr:hover {background-color: whitesmoke;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #1589FF;
+    color: white;
+  }
 
 
 

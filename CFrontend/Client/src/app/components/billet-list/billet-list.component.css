@@ -1,7 +1,9 @@
 .card-body{
     text-align: right; 
-    color: #006d4b;
-     margin-top: 50px;
+    color: whitesmoke;
+     margin-top: 110px;
+     margin-right: 15px;
+
       font-size: small;
 }
 
@@ -19,4 +21,12 @@
 .col-sm-6{
     align-content: center;
      padding: 50px 30px 30px 10px;
+}
+.text-center {
+    color: #1589FF;
+    font-family: "Gill Sans", sans-serif;
+    font-weight: bold;
+}
+.container {
+    margin-top: 3%;
 }
