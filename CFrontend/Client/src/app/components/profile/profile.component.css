@@ -1,20 +1,36 @@
-.jumbotron {
-    background-color:whitesmoke;
-    font-family: "Gill Sans", sans-serif;
-    color: #1589FF; 
-    font-weight: bold;
+.card{
+    border-color: #ffc727; 
+   
+}    
+
+.text-center {
+ color: #1A5276;
+ margin-top: 4%;
 }
-.modal-title {
-    color: #1589FF; 
+.username{
+    color: #ffc727; 
+   
+}
+.col-md-6 {
+    left: 25%;
+    right: 25%;
+    margin-top: 5%;
+}
+.label {
+    color: #1A5276;
+    text-align: center; 
+}
+p {
+    color: #1A5276;
+    text-align: center;  
+}
+img {
+    display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 15%;
+   margin-top: 2%;
 }
 
-.p-3 {
-    background-color: #1589ff; 
-    color: white; 
-}
 
-.btn {
-    float: right;
-    margin-top: -3%;
-    font-weight: bold;
-}
+

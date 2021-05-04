@@ -22,7 +22,7 @@ import { AddEquipeComponent } from './components/add-equipe/add-equipe.component
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddAcheteurComponent } from './components/add-acheteur/add-acheteur.component';
 import { PaiementBilletComponent } from './components/paiement-billet/paiement-billet.component';
-import { ConfirmationAcheteurComponent } from './confirmation-acheteur/confirmation-acheteur.component';
+
 import { ToastrModule } from 'ngx-toastr';
 
 
@@ -41,7 +41,7 @@ import { ToastrModule } from 'ngx-toastr';
     BilletListComponent,
     AddAcheteurComponent,
     PaiementBilletComponent,
-    ConfirmationAcheteurComponent,
+
     ListJoueurComponent,
     ListEquipeComponent,
     AddEquipeComponent,

@@ -4,21 +4,21 @@
     margin-top: 60px;
 }
 .text-center {
-    color: #1589FF;
+    color: #1A5276;
     font-family: "Gill Sans", sans-serif;
     font-weight: bold;
 }
 .card-footer {
-    background-color: #1589FF; 
+    background-color: #ffc727;
     
 }
 .card{
     width: 15rem;
-    height: 15rem;
+    /* height: 15rem; */
     margin-right: 1%;
     margin-left: 2%; 
     margin-top: 30px;
-   border-color: #1589FF;
+   border-color: #ffc727;
 }
 .imageJoueur{
     padding-top: 6%;
@@ -26,7 +26,7 @@
     overflow:hidden;
     -webkit-border-radius:50px;
     -moz-border-radius:50px;
-    border-radius:50px;
+    border-radius:30%;
     /* width:100px; */
     height:40%;
     display: block;
@@ -48,46 +48,13 @@
     font-weight: bold;
     margin-right: 10%;
 }
-.trash {  
-    margin-left: 8%;
-    color: black;
-    font-size: 30px;  
-}
-.edit {
-    margin-left: 27%;
-    color: black;
-    font-size: 32px;  
-}
-.modal-title {
-    color: #1589FF;
-    font-family: "Gill Sans", sans-serif;
-    font-weight: bold;
-}
-.col-sm-4 {
-    text-align: center;
-    font-family: "Gill Sans", sans-serif;
-    color: black;
-    font-weight: bold;
-}
-.bt-warning {
-    color: #1A5276 ;
-}
-input,#poste,#equipe{
-    border-left: 5px solid #1589FF;
-}
-.btn-warning{
-    background-color: #1589FF;
-    color: white;
-    border-color: #1589FF;
-
-}
 h5{
     margin-left: 12%;
     margin-top: 3%;
 }
 .nomEquipe{
     font-family: "Gill Sans", sans-serif;
-    color: #1589FF;
+    color: #1A5276; 
     font-weight: bold;
     font-size: 32px;
     /* margin-right:-85%;  */
