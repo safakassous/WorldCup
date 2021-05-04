@@ -17,13 +17,13 @@ import { BoardUserComponent } from './components/board-user/board-user.component
 import { AddJoueurComponent } from './components/add-joueur/add-joueur.component';
 import { ListJoueurComponent } from './components/list-joueur/list-joueur.component';
 import { BilletListComponent } from './components/billet-list/billet-list.component';
+import { ListEquipeComponent } from './components/list-equipe/list-equipe.component';
+import { AddEquipeComponent } from './components/add-equipe/add-equipe.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddAcheteurComponent } from './components/add-acheteur/add-acheteur.component';
 import { PaiementBilletComponent } from './components/paiement-billet/paiement-billet.component';
 import { ConfirmationAcheteurComponent } from './confirmation-acheteur/confirmation-acheteur.component';
 import { ToastrModule } from 'ngx-toastr';
-
-
 
 
 @NgModule({
@@ -43,6 +43,8 @@ import { ToastrModule } from 'ngx-toastr';
     PaiementBilletComponent,
     ConfirmationAcheteurComponent,
     ListJoueurComponent,
+    ListEquipeComponent,
+    AddEquipeComponent
     BilletListComponent
 
   ],

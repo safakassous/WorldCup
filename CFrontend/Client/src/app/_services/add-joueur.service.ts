@@ -16,8 +16,8 @@ export class AddJoueurService {
     
   }
 
-  addJoueur(joueur:Joueur){
-    return this.http.post<any>(this.addJoueurUrl,joueur);
+  addJoueur(joueur:Joueur, idEquipe:any){
+    return this.http.post<any>("http://localhost:5001/api/equipe/"+idEquipe+"/addJoueur",joueur);
   }
 
   addImage(imageJoueur:any,id_joueur:any){

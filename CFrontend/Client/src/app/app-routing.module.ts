@@ -1,3 +1,5 @@
+import { ListEquipeComponent } from './components/list-equipe/list-equipe.component';
+import { AddEquipeComponent } from './components/add-equipe/add-equipe.component';
 import { ListJoueurComponent } from './components/list-joueur/list-joueur.component';
 import { AddJoueurComponent } from './components/add-joueur/add-joueur.component';
 import { NgModule } from '@angular/core';
@@ -21,14 +23,14 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-
-  {path: 'addJoueur', component: AddJoueurComponent},
-  {path: 'listJoueurs', component: ListJoueurComponent},
-  {path: 'billets', component: BilletListComponent},
+  { path: 'addJoueur', component: AddJoueurComponent },
+  { path: 'listJoueurs', component: ListJoueurComponent },
+  { path: 'billets', component: BilletListComponent },
+  { path: 'addEquipe', component: AddEquipeComponent },
+  { path: 'listEquipes', component: ListEquipeComponent },
   {path: 'paiement/:id', component : AddAcheteurComponent},
   {path: 'addAcheteur', component : AddAcheteurComponent},
   {path: 'confirmation', component : ConfirmationAcheteurComponent},
-
 
 
 ];

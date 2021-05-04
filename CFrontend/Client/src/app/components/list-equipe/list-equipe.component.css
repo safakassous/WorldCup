@@ -9,16 +9,16 @@
     font-weight: bold;
 }
 .card-footer {
-    background-color: whitesmoke; 
+    background-color: #1589FF; 
     
 }
 .card{
     width: 15rem;
+    height: 15rem;
     margin-right: 1%;
     margin-left: 2%; 
     margin-top: 30px;
    border-color: #1589FF;
-   height: 320px;
 }
 .imageJoueur{
     padding-top: 6%;
@@ -50,7 +50,7 @@
 }
 .trash {  
     margin-left: 8%;
-    color: red;
+    color: black;
     font-size: 30px;  
 }
 .edit {
@@ -67,7 +67,7 @@
     text-align: center;
     font-family: "Gill Sans", sans-serif;
     color: black;
- 
+    font-weight: bold;
 }
 .bt-warning {
     color: #1A5276 ;
@@ -89,13 +89,15 @@ h5{
     font-family: "Gill Sans", sans-serif;
     color: #1589FF;
     font-weight: bold;
-    font-size: 32px;  
+    font-size: 32px;
+    /* margin-right:-85%;  */
+    /* margin-top: 2%; */
+     
 
 }
 .logo{
     width:90px;
     height: 90px;
     margin-right: -10%;
-    margin-left: 3%;
-    
+    margin-left: 3%; 
 }
