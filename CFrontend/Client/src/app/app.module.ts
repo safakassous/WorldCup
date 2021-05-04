@@ -18,6 +18,8 @@ import { AddJoueurComponent } from './components/add-joueur/add-joueur.component
 import { ListJoueurComponent } from './components/list-joueur/list-joueur.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BilletListComponent } from './components/billet-list/billet-list.component';
+import { ListEquipeComponent } from './components/list-equipe/list-equipe.component';
+import { AddEquipeComponent } from './components/add-equipe/add-equipe.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { BilletListComponent } from './components/billet-list/billet-list.compon
     NavbarBComponent,
     AddJoueurComponent,
     ListJoueurComponent,
-    BilletListComponent
+    BilletListComponent,
+    ListEquipeComponent,
+    AddEquipeComponent
   ],
   imports: [
     BrowserModule,

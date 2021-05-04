@@ -1,10 +1,17 @@
 package com.Qatar2022.models;
-import javax.persistence.*;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "imageJoueur")
+@Table(name = "logoEquipe")
 
-public class ImageModel {
+public class LogoModelEquipe {
 
     @Id
     private Long id;
@@ -16,13 +23,13 @@ public class ImageModel {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id", referencedColumnName = "id")
-    private Joueur joueur;
+    private Equipe equipe;
 
-    public ImageModel() {
+    public LogoModelEquipe() {
         super();
     }
 
-    public ImageModel(String name, String type, byte[] picByte,Long id) {
+    public LogoModelEquipe(String name, String type, byte[] picByte,Long id) {
         this.id=id;
         this.name = name;
         this.type = type;

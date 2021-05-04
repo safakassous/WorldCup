@@ -5,11 +5,9 @@ import java.util.Optional;
 import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
-
-import com.Qatar2022.models.ImageModel;
 import com.Qatar2022.models.Joueur;
-import com.Qatar2022.repository.ImageRepository;
-
+import com.Qatar2022.models.LogoModelEquipe;
+import com.Qatar2022.repository.LogoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,42 +29,42 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RequestMapping(path = "api")
 
-public class ImageUploadController {
+public class logoUploadController {
+     @Autowired
 
-  @Autowired
+    //ImageRepository imageRepository;
+    LogoRepository logoRepository;
+    Joueur j;
 
-    ImageRepository imageRepository;
-    
 
+    @PostMapping("/uploadLogo/{equipeId}")
 
-    @PostMapping("/upload/{id}")
+    public BodyBuilder uplaodImage(@RequestParam("imageFile") MultipartFile file,@PathVariable(value = "equipeId") Long equipeId) throws IOException {
 
-    public BodyBuilder uplaodImage(@RequestParam("imageFile") MultipartFile file,@PathVariable(value = "id") Long joueurId) throws IOException {
-
-        ImageModel img = new ImageModel(file.getOriginalFilename(), file.getContentType(),compressBytes(file.getBytes()),joueurId);
-        imageRepository.save(img);
+        LogoModelEquipe img = new LogoModelEquipe(file.getOriginalFilename(), file.getContentType(),compressBytes(file.getBytes()),equipeId);
+        logoRepository.save(img);
 
         return ResponseEntity.status(HttpStatus.OK);
 
     }
 
-    @GetMapping(path = { "/getImage/{id}" })
+    @GetMapping(path = { "/getLogo/{equipeId}" })
 
-    public ImageModel getImage(@PathVariable("id") Long joueurId) throws IOException {
+    public LogoModelEquipe getImage(@PathVariable("equipeId") Long equipeId) throws IOException {
 
-        final Optional<ImageModel> retrievedImage = imageRepository.findById(joueurId);
+        final Optional<LogoModelEquipe> retrievedImage = logoRepository.findById(equipeId);
 
-        ImageModel img = new ImageModel(retrievedImage.get().getName(), retrievedImage.get().getType(),
+        LogoModelEquipe img = new LogoModelEquipe(retrievedImage.get().getName(), retrievedImage.get().getType(),
 
-                decompressBytes(retrievedImage.get().getPicByte()),joueurId);
+                decompressBytes(retrievedImage.get().getPicByte()),equipeId);
 
         return img;
     }
 
-    @DeleteMapping("/deleteImage/{idJoueur}")
-	public ResponseEntity<?> deleteJoueur(@PathVariable(value = "idJoueur") Long joueurId) {
-		ImageModel image = imageRepository.findById(joueurId).orElseThrow(null);
-		imageRepository.delete(image);
+    @DeleteMapping("/deleteLogo/{equipeId}")
+	public ResponseEntity<?> deleteImage(@PathVariable(value = "idJoueur") Long equipeId) {
+		LogoModelEquipe image = logoRepository.findById(equipeId).orElseThrow(null);
+		logoRepository.delete(image);
 	    return ResponseEntity.ok().build();
 	}
     // compress the image bytes before storing it in the database
@@ -116,4 +114,5 @@ public class ImageUploadController {
         return outputStream.toByteArray();
     }
   
+    
 }
