@@ -34,6 +34,13 @@ export class UserService {
   getUsers(){
     return this.http.get('http://localhost:5001/api/auth/users');
   }
-
+  // tslint:disable-next-line:typedef
+  deleteUser(id: any) {
+    return this.http.delete('http://localhost:5001/api/auth/deleteuser/' + id);
+  }
+  // tslint:disable-next-line:typedef
+  updateUser(id: any, user: any) {
+  return this.http.put('http://localhost:5001/api/auth/updateuser/' + id, user);
+  }
 }
 

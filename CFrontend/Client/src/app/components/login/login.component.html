@@ -1,7 +1,5 @@
 <div class="col-md-6" >
-  <hr class="hr">
-  <h2 class="text-center">CONNEXION</h2>
-  <hr class="hr">
+  
 
 <form
   *ngIf="!isLoggedIn"
@@ -10,8 +8,20 @@
   #f="ngForm"
   novalidate
 >
+<hr class="hr">
+  <h2 class="text-center">CONNEXION</h2>
+  <hr class="hr">
   <div class="form-group">
-    <label for="username">Nom d'utilisateur</label>
+    <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="f.submitted && isLoginFailed">
+      Votre authentification n'est pas réussie !
+      Nom d'utilisateur ou mot de passe incorrect ! 
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="username">Nom d'utilisateur : </label>
     <input
       type="text"
       class="form-control"
@@ -29,7 +39,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="password">Mot de passe</label>
+    <label for="password">Mot de passe :</label>
     <input
       type="password"
       class="form-control"
@@ -52,14 +62,7 @@
   </div>
   <button type="button"  class="btn btn-link" [routerLink]="['/register']"><b>INSCRIPTION ? </b></button>
   <button class="btn btn-primary"  >CONNEXION</button>
-  <div class="form-group">
-    <div
-      class="alert alert-danger"
-      role="alert"
-      *ngIf="f.submitted && isLoginFailed">
-      Votre authentification n'est pas réussie ! 
-    </div>
-  </div>
+ 
 </form>
 
 <div class="alert alert-success" *ngIf="isLoggedIn">

@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { authInterceptorProviders } from './_helpers/auth.service';
@@ -16,10 +16,15 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
 import { AddJoueurComponent } from './components/add-joueur/add-joueur.component';
 import { ListJoueurComponent } from './components/list-joueur/list-joueur.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BilletListComponent } from './components/billet-list/billet-list.component';
 import { ListEquipeComponent } from './components/list-equipe/list-equipe.component';
 import { AddEquipeComponent } from './components/add-equipe/add-equipe.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddAcheteurComponent } from './components/add-acheteur/add-acheteur.component';
+import { PaiementBilletComponent } from './components/paiement-billet/paiement-billet.component';
+import { ConfirmationAcheteurComponent } from './confirmation-acheteur/confirmation-acheteur.component';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -33,10 +38,15 @@ import { AddEquipeComponent } from './components/add-equipe/add-equipe.component
     NavbarComponent,
     NavbarBComponent,
     AddJoueurComponent,
-    ListJoueurComponent,
     BilletListComponent,
+    AddAcheteurComponent,
+    PaiementBilletComponent,
+    ConfirmationAcheteurComponent,
+    ListJoueurComponent,
     ListEquipeComponent,
     AddEquipeComponent
+    BilletListComponent
+
   ],
   imports: [
     BrowserModule,
@@ -45,7 +55,8 @@ import { AddEquipeComponent } from './components/add-equipe/add-equipe.component
     HttpClientModule,
     ReactiveFormsModule,
     NgbModule,
-    
+    ToastrModule.forRoot(),
+
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

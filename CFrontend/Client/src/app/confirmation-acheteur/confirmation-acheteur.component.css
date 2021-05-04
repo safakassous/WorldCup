@@ -1,0 +1,35 @@
+.text-center {
+    color: #1589FF;
+    font-family: "Gill Sans", sans-serif;
+    font-weight: bold;
+}
+.col-md-6 {
+    left: 25%;
+    right: 25%;
+    margin-top: 60px;
+}
+.title1{
+   font-size: large;
+   font-weight: bold;
+   text-align: center;
+   color: rgb(65, 64, 64);
+}
+.title2{
+   margin-top:2%;
+   font-size: large;
+   font-weight: bold;
+   color: rgb(65, 64, 64);
+   
+}
+.title3 {
+    margin-top:1%;
+    margin-left: 5%;
+}
+.btn{
+    float: right;
+    width: 160px;
+}
+
+input{
+    border-left: 5px solid #1589FF;
+}
