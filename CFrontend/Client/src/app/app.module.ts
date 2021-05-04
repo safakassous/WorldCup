@@ -44,7 +44,7 @@ import { ToastrModule } from 'ngx-toastr';
     ConfirmationAcheteurComponent,
     ListJoueurComponent,
     ListEquipeComponent,
-    AddEquipeComponent
+    AddEquipeComponent,
     BilletListComponent
 
   ],
