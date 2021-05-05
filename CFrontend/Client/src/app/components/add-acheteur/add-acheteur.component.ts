@@ -16,6 +16,7 @@ export class AddAcheteurComponent implements OnInit {
   addAcheteurForm: FormGroup;
   confirmForm: FormGroup;
   r: any;
+  // tslint:disable-next-line:max-line-length
   constructor(private modalService: NgbModal, private route: ActivatedRoute, private toastr: ToastrService, private fb: FormBuilder, private acheteurService: AcheteurService, private router: Router, private service: BilletService) {
     const formControls = {
       nom : new FormControl('', [
