@@ -1,8 +1,10 @@
+import { EquipeService } from './../../_services/equipe.service';
 import { Validators, FormControl, FormBuilder } from '@angular/forms';
 import { Joueur } from './../../models/joueur';
 import { ListJoueurService } from './../../_services/list-joueur.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { isExternalModuleNameRelative } from 'typescript';
 
 @Component({
   selector: 'app-list-joueur',
@@ -18,8 +20,14 @@ export class ListJoueurComponent implements OnInit {
   image: any
   selectedPoste: any
   editJoueurForm: any
+  selectedEquipe: any
+  equipes: any
+  //logoImage
+  retrieveLogoResonse: any;
+  base64DataLogo: any;
+  retrievedLogo: any;
 
-  constructor(private modalService: NgbModal,private fb: FormBuilder, private joueurService: ListJoueurService) {
+  constructor(private modalService: NgbModal, private fb: FormBuilder, private equipeService: EquipeService, private joueurService: ListJoueurService) {
     let formControls = {
       nom: new FormControl('', [
         Validators.required,
@@ -30,37 +38,73 @@ export class ListJoueurComponent implements OnInit {
       poste: new FormControl('', [
         Validators.required,
       ]),
+      equipe: new FormControl('', [
+        Validators.required,
+      ]),
     }
 
     this.editJoueurForm = this.fb.group(formControls)
-   }
-   get nom() { return this.editJoueurForm.get('nom') }
-   get prenom() { return this.editJoueurForm.get('prenom') }
-   get poste() { return this.editJoueurForm.get('poste') }
+  }
+  get nom() { return this.editJoueurForm.get('nom') }
+  get prenom() { return this.editJoueurForm.get('prenom') }
+  get poste() { return this.editJoueurForm.get('poste') }
+  get equipe() { return this.editJoueurForm.get('equipe') }
+
   ngOnInit(): void {
+    this.equipes = this.equipeService.getEquipes().subscribe(data => { this.equipes = data });
 
     let tab = new Array();
-    this.joueurs = this.joueurService.getJoueur().subscribe((data: any) => {
-      this.joueurs = data
 
+    this.equipeService.getEquipes().subscribe((data: any) => {
+      
+      
+      
       data.forEach((element: any) => {
-
-        this.joueurService.getJoueurImage(element.idJoueur).subscribe(
+        this.equipeService.getLogo(element.id).subscribe(
           (res: any) => {
-            element.retrieveResonse = res
-            element.base64Data = res.picByte;
-            element.retrievedImage = 'data:image/jpeg;base64,' + res.picByte;
-            tab.push(element)
+            element.retrieveLogoResonse = res
+            element.base64DataLogo = res.picByte;
+            element.retrievedLogo = 'data:image/jpeg;base64,' + res.picByte;
+            console.log(res)
+
+          },
+          (err: any) => {
+            console.log(err)
           });
-      },
-        (err: any) => {
-          console.log(err)
-        }
-      )
+        this.joueurService.getJoueur(element.id).subscribe((res: any) => {
+
+          element.joueurs = res.content
+          console.log(res.content)
+          tab.push(element)
+        
+          res.content.forEach((jou: any) => {
+            jou.id_equipe = element.id
+
+            this.joueurService.getJoueurImage(jou.id).subscribe(
+              (res: any) => {
+                console.log(res)
+                jou.retrieveResonse = res
+                jou.base64Data = res.picByte;
+                jou.retrievedImage = 'data:image/jpeg;base64,' + res.picByte;
+
+              },
+              (err: any) => {
+                console.log(err)
+              });
+          });
+
+        });
+      });
+      
+      this.equipes = tab
     });
   }
   selectChangePoste(event: any) {
     this.selectedPoste = event.target.value;
+  }
+
+  selectChangeEquipe(event: any) {
+    this.selectedEquipe = event.target.value;
   }
 
   openModal(targetModal: any, joueur: any) {
@@ -71,16 +115,17 @@ export class ListJoueurComponent implements OnInit {
     this.editJoueurForm.patchValue({
       nom: joueur.nom,
       prenom: joueur.prenom,
-      poste:joueur.poste
+      poste: joueur.poste,
+      equipe: joueur.id_equipe
 
     });
   }
   onSubmit(idJoueur: any) {
     const data = this.editJoueurForm.value;
-    this.joueurService.editJoueur(idJoueur, data).subscribe(
+    this.joueurService.editJoueur(idJoueur, data.equipe, data).subscribe(
       res => {
+        console.log(res)
         //this.toastr.success('Formateur modifié avec succès');
-        //this.router.navigateByUrl('/listFormateur');
         this.modalService.dismissAll();
         window.location.reload();
       },
@@ -91,10 +136,12 @@ export class ListJoueurComponent implements OnInit {
     this.modalService.dismissAll();
     window.location.reload();
   }
-  supprimer(id_joueur: any) {
+
+
+  supprimer(id_joueur: any, idEquipe: any) {
     let res = confirm('Êtes-vous sûr de vouloir supprimer ce joueur?');
     if (res) {
-      this.joueurService.deleteJoueur(id_joueur).subscribe((data: any) => {
+      this.joueurService.deleteJoueur(id_joueur, idEquipe).subscribe((data: any) => {
         //this.toastr.success('joueur supprimé avec succès');
         window.location.reload();
       },

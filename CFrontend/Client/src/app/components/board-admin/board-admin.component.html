@@ -3,95 +3,108 @@
     <h2 class="text-center">LISTE DES UTILISATEURS</h2>
     <hr>
   <div class="row">
+
+      <table id="customers">
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Date de naissance</th>
+            <th>Nom d'utilisateur</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr *ngFor="let user of users" >
+            <td>{{user.nom}}  </td>
+            <td>{{user.prenom}}</td>
+            <td>{{user.dateN}}</td>
+            <td>{{user.username}}</td>
+            <td><div class="edit" (click)="openModal(editUserModal, user)"> <i class="fa fa-edit" aria-hidden="true"></i>
+            </div></td>
+            <td>
+                <div (click)="supprimer(user.id)" class="trash"> <i class="fa fa-trash" aria-hidden="true"></i></div>
+              
+            </td>
+          </tr>
+          <ng-template #editUserModal let-modal>
+              <div class="modal-header">
+                <h5 class="modal-title" id="editUserModal">MODIFIER UTILISATEUR</h5>
+                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+      
+              <div class="modal-body">
+                <form [formGroup]="editUserForm" (ngSubmit)="onSubmit(user.id)">
+                  <div class="form-row">
+                    <div class="form-group col-6">
+                      <label for="nom" class="lab">Nom :</label>
+                      <input type="text" name="nom" id="nom" formControlName="nom" class="form-control">
+                      <div *ngIf="nom?.touched">
+                        <small *ngIf="nom?.errors?.required" class="text-danger">Ce champ est obligatoire</small>
+                      </div>
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="prenom" class="lab">Prénom :</label>
+                      <input type="text" name="prenom" id="prenom" formControlName="prenom" class="form-control">
+                      <div *ngIf="prenom?.touched">
+                        <small *ngIf="prenom?.errors?.required" class="text-danger">Ce champ est obligatoire</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-6  ">
+                      <label for="username" class="lab">Nom d'utilisateur :</label>
+                      <input minlength="3" maxlength="20" type="text" name="username" id="username" formControlName="username"
+                        class="form-control">
+                      <div *ngIf="username?.errors ">
+                        <small *ngIf="username?.errors?.required" class="text-danger">Ce champ est obligatoire</small>
+                        <small *ngIf="username?.errors?.minlength" class="text-danger">
+                          Le nom d'utilisateur doit contenir au moins 3 caractères
+                        </small>
+                        <small *ngIf="username?.errors?.maxlength" class="text-danger">
+                          Le nom d'utilisateur doit contenir au plus 20 caractères
+                        </small>
+                        <small *ngIf="username?.errors?.invalid" class="text-danger">
+                          Le nom d'utilisateur est déjà utilisé
+                        </small>
+                      </div>
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="password" class="lab">Mot de passe :</label>
+                      <input type="password" name="password" minlength="6" id="password" formControlName="password"
+                        class="form-control">
+                      <div *ngIf="password?.errors ">
+                        <small *ngIf="password?.errors?.required" class="text-danger">Ce champ est obligatoire</small>
+                        <small *ngIf="password?.errors?.minlength" class="text-danger">
+                          Le mot de passe doit contenir au moins 6 caractères
+                        </small>
+                      </div>
+                    </div>
+      
+                  </div>
+      
+                  <div class="form-row">
+                    <div class="form-group ">
+                      <label for="type" class="dateN">Date de naissance :</label>
+                      <br>
+                      <input type="date" name="dateN" id="dateN" formControlName="dateN" class="form-control">
+                    </div>
+                  </div>
+      
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn1">ENREGISTRER</button>
+                    <button type="button" class="btn btn-danger" (click)="modal.dismiss()">FERMER</button>
+                  </div>
+                </form>
+              </div>
+            </ng-template>
+         
+        </table>
      
-    <div class="card" *ngFor="let user of users" >
-      <br>
-      <h3>{{user.nom}} {{user.prenom}}</h3>
-      <p class="title"> {{user.username}}</p>
-      <p>{{user.dateN}}</p>
-      <div class="footer">
-        <div class="row">
-          <div class="edit" (click)="openModal(editUserModal, user)"> <i class="fa fa-edit" aria-hidden="true"></i>
-          </div>
-          <div (click)="supprimer(user.id)" class="trash"> <i class="fa fa-trash" aria-hidden="true"></i></div>
-        </div>
-      </div>
-      <!-- <p><button class="editbtn" (click)="openModal(editUserModal, user)">edit</button></p> -->
+    
 
-      <ng-template #editUserModal let-modal>
-        <div class="modal-header">
-          <h5 class="modal-title" id="editUserModal">MODIFIER UTILISATEUR</h5>
-          <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <div class="modal-body">
-          <form [formGroup]="editUserForm" (ngSubmit)="onSubmit(user.id)">
-            <div class="form-row">
-              <div class="form-group col-6">
-                <label for="nom" class="lab">Nom :</label>
-                <input type="text" name="nom" id="nom" formControlName="nom" class="form-control">
-                <div *ngIf="nom?.touched">
-                  <small *ngIf="nom?.errors?.required" class="text-danger">Ce champ est obligatoire</small>
-                </div>
-              </div>
-              <div class="form-group col-6">
-                <label for="prenom" class="lab">Prénom :</label>
-                <input type="text" name="prenom" id="prenom" formControlName="prenom" class="form-control">
-                <div *ngIf="prenom?.touched">
-                  <small *ngIf="prenom?.errors?.required" class="text-danger">Ce champ est obligatoire</small>
-                </div>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-6  ">
-                <label for="username" class="lab">Nom d'utilisateur :</label>
-                <input minlength="3" maxlength="20" type="text" name="username" id="username" formControlName="username"
-                  class="form-control">
-                <div *ngIf="username?.errors ">
-                  <small *ngIf="username?.errors?.required" class="text-danger">Ce champ est obligatoire</small>
-                  <small *ngIf="username?.errors?.minlength" class="text-danger">
-                    Le nom d'utilisateur doit contenir au moins 3 caractères
-                  </small>
-                  <small *ngIf="username?.errors?.maxlength" class="text-danger">
-                    Le nom d'utilisateur doit contenir au plus 20 caractères
-                  </small>
-                  <small *ngIf="username?.errors?.invalid" class="text-danger">
-                    Le nom d'utilisateur est déjà utilisé
-                  </small>
-                </div>
-              </div>
-              <div class="form-group col-6">
-                <label for="password" class="lab">Mot de passe :</label>
-                <input type="password" name="password" minlength="6" id="password" formControlName="password"
-                  class="form-control">
-                <div *ngIf="password?.errors ">
-                  <small *ngIf="password?.errors?.required" class="text-danger">Ce champ est obligatoire</small>
-                  <small *ngIf="password?.errors?.minlength" class="text-danger">
-                    Le mot de passe doit contenir au moins 6 caractères
-                  </small>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="form-row">
-              <div class="form-group ">
-                <label for="type" class="dateN">Date de naissance :</label>
-                <br>
-                <input type="date" name="dateN" id="dateN" formControlName="dateN" class="form-control">
-              </div>
-            </div>
-
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-dark">ENREGISTRER</button>
-              <button type="button" class="btn btn-danger" (click)="modal.dismiss()">FERMER</button>
-            </div>
-          </form>
-        </div>
-      </ng-template>
-    </div>
+      
+   
   </div>
 
 </div>

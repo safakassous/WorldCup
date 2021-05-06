@@ -1,0 +1,31 @@
+<div class="col-md-6">
+    <hr class="hr">
+    <h2 class="text-center">NOUVELLE EQUIPE</h2>
+    <hr class="hr">
+    <div>
+        <form [formGroup]="addEquipeForm" (ngSubmit)="addEquipe()">
+
+            <div class="form-group col-12">
+                <label for="exampleFormControlInput1" class="form-label">Nom : </label>
+                <input type="text" name="nom" id="nom" formControlName="nom" class="form-control">
+                <div *ngIf="nom?.touched">
+                    <small *ngIf="nom?.errors?.required" class="text-danger">Ce champ est obligatoire</small>
+                </div>
+            </div>
+ 
+            <div class="form-group col-12">
+                <label class="form-label" for="customFile">Logo : </label>
+                <input type="file" class="form-control" id="file" (change)="onFileChanged($event)" />
+                <div *ngIf="equipe?.touched">
+                    <small *ngIf="equipe?.errors?.required" class="text-danger">Ce champ est obligatoire</small>
+                </div>
+            </div>
+            
+            <div class="form-group col-12">
+                <button type="submit" class="btn btn1" >ENREGISTRER</button>
+            </div>
+            <br>
+            <br>
+        </form>
+    </div>
+</div>

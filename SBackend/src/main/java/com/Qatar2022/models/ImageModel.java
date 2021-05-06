@@ -2,7 +2,7 @@ package com.Qatar2022.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "image")
+@Table(name = "imageJoueur")
 
 public class ImageModel {
 
@@ -15,7 +15,7 @@ public class ImageModel {
 
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "image_id", referencedColumnName = "idJoueur")
+    @JoinColumn(name = "image_id", referencedColumnName = "id")
     private Joueur joueur;
 
     public ImageModel() {

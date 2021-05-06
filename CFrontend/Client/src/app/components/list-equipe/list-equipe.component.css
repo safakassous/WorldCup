@@ -1,0 +1,70 @@
+.container {
+    left: 20%;
+    right: 20%;
+    margin-top: 60px;
+}
+.text-center {
+    color: #1A5276;
+    font-family: "Gill Sans", sans-serif;
+    font-weight: bold;
+}
+.card-footer {
+    background-color: #ffc727;
+    
+}
+.card{
+    width: 15rem;
+    /* height: 15rem; */
+    margin-right: 1%;
+    margin-left: 2%; 
+    margin-top: 30px;
+   border-color: #ffc727;
+}
+.imageJoueur{
+    padding-top: 6%;
+    /* margin-left:6% ; */
+    overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:30%;
+    /* width:100px; */
+    height:40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+   
+}
+.row{
+    margin-left:10%;
+    margin-right: 5%;
+}
+.card-title, .card-text {
+    text-align: center;
+    font-family: "Gill Sans", sans-serif;
+    color: black;
+}
+.card-title {
+    font-weight: bold;
+    margin-right: 10%;
+}
+h5{
+    margin-left: 12%;
+    margin-top: 3%;
+}
+.nomEquipe{
+    font-family: "Gill Sans", sans-serif;
+    color: #1A5276; 
+    font-weight: bold;
+    font-size: 32px;
+    /* margin-right:-85%;  */
+    /* margin-top: 2%; */
+     
+
+}
+.logo{
+    width:90px;
+    height: 90px;
+    margin-right: -10%;
+    margin-left: 3%; 
+}

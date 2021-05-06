@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/_services/auth.service';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private route: Router) { }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -24,6 +26,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  // tslint:disable-next-line:typedef
   onSubmit() {
     this.authService.login(this.form).subscribe(
       data => {
@@ -33,7 +36,14 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this.reloadPage();
+        // tslint:disable-next-line:no-unused-expression
+        // this.reloadPage();
+        // this.route.navigate(['/profile']);
+        this.route.navigate(['/profile'])
+        .then(() => {
+         window.location.reload();
+        });
+
       },
       err => {
         this.errorMessage = err.error.message;
@@ -42,6 +52,7 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  // tslint:disable-next-line:typedef
   reloadPage() {
     window.location.reload();
   }

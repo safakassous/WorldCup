@@ -36,7 +36,7 @@ public class AttachmentEmailExampleController {
 
         helper.setText(a.getCorps_mail());
          
-        String path1 = "C:\\Users\\Farah\\OneDrive\\Bureau\\TP1\\hihi.txt";
+       String path1 = "C:\\Users\\safa kassous\\Desktop\\helo.txt";
        // String path2 = "/home/tran/Downloads/readme.zip";
  
         // Attachment 1

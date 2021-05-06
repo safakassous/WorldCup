@@ -1,0 +1,28 @@
+<div class="container">
+    <hr class="hr">
+    <h2 class="text-center">LISTE DES EQUIPES</h2>
+    <hr class="hr">
+    <div *ngFor="let equipe of equipes">
+        <div class="row">
+            <img class=" logo" [src]=equipe.retrievedLogo>
+            <h5 class="nomEquipe">{{equipe.nom}}</h5>
+            <!-- <div (click)="supprimer(equipe.id)" class="trash"> <i class="fa fa-trash" aria-hidden="true"></i></div> -->
+
+        </div>
+        <div class="row">
+            <div class="card" *ngFor="let joueur of equipe.joueurs">
+                <img class="card-img-top imageJoueur" *ngIf="joueur.idImage==1" [src]=joueur.retrievedImage>
+                <img class="card-img-top  imageJoueur" *ngIf="joueur.idImage==0" src="../../../../assets/profil.png">
+                <div class="card-body">
+                    <h5 class="card-title" >{{joueur.nom}} {{joueur.prenom}}</h5>
+                    <p class="card-text">{{joueur.poste}}</p>
+                    <div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-.text-center{
+/* .text-center{
     color:#1589FF;
     font-family: "Gill Sans", sans-serif;
     font-weight: bold;
@@ -15,6 +15,49 @@
     }
 input {
         border-left: 5px solid #1589FF;
+    }
+    .alert {
+        margin-top:2%;
+    }
+   */
+   .text-center{
+    color:#1A5276;
+    font-family: "Gill Sans", sans-serif;
+    font-weight: bold;
+}
+.text{
+    color:#ffc727;
+    font-family: "Gill Sans", sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+    .btn {
+        float: right;
+        width: 150px;
+        border-color: white; 
+       background-color: white ;
+        color: #1A5276;
+    }
+  .bt2 {
+    float: right;
+    width: 150px;
+    border-color: #ffc727; 
+    background-color: white ;
+    color: #1A5276;
+  }
+.bt2:hover {
+    background-color: #1A5276;
+    color: #ffc727;
+}
+      
+   
+.col-md-6 {
+        left: 25%;
+        right: 25%;
+        margin-top: 150px;
+    }
+input {
+        border-left: 5px solid #ffc727;
     }
     .alert {
         margin-top:2%;

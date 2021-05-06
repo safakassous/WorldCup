@@ -23,7 +23,7 @@
               nom
               #nom="ngModel"
             />
-          <div class="alert-danger" *ngIf="nom.errors && f.submitted">
+          <div class="alert alert-danger" *ngIf="nom.errors && f.submitted">
                   <div *ngIf="nom.errors.required">Ce champ est obligatoire</div> 
                 </div>
         </div>
@@ -38,7 +38,7 @@
               prenom
               #prenom="ngModel"
             />
-            <div class="alert-danger" *ngIf="prenom.errors && f.submitted">
+            <div class="alert alert-danger" *ngIf="prenom.errors && f.submitted">
                   <div *ngIf="prenom.errors.required">Ce champ est obligatoire</div>  
                 </div>
           </div>
@@ -54,7 +54,7 @@
             dateN
             #dateN="ngModel"
           />
-          <div class="alert-danger" *ngIf="dateN.errors && f.submitted">
+          <div class="alert alert-danger" *ngIf="dateN.errors && f.submitted">
                   <div *ngIf="dateN.errors.required">Ce champ est obligatoire</div>  
                 </div>
     </div>
@@ -71,7 +71,7 @@
       maxlength="20"
       #username="ngModel"
     />
-    <div class="alert-danger" *ngIf="username.errors && f.submitted">
+    <div class="alert alert-danger" *ngIf="username.errors && f.submitted">
       <div *ngIf="username.errors.required">Ce champ est obligatoire</div>
       <div *ngIf="username.errors.minlength">
         Le nom d'utilisateur doit contenir au moins 3 caractères
@@ -93,7 +93,7 @@
       minlength="6"
       #password="ngModel"
     />
-    <div class="alert-danger" *ngIf="password.errors && f.submitted">
+    <div class="alert alert-danger" *ngIf="password.errors && f.submitted">
       <div *ngIf="password.errors.required">Ce champ est obligatoire</div>
       <div *ngIf="password.errors.minlength">
               Le mot de passe doit contenir au moins 6 caractères
@@ -101,8 +101,8 @@
     </div>
   </div>
 
-  <button type="button"  class="btn btn-link" [routerLink]="['/login']"><b>DÉJA INSCRIT ? </b></button>
-  <button class="btn btn-primary" name="btn" >INSCRIPTION</button>
+  <button type="button"  class="btn" [routerLink]="['/login']"><b>DÉJA INSCRIT ? </b></button>
+  <button class="btn bt2" name="btn" >INSCRIPTION</button>
   
 
 

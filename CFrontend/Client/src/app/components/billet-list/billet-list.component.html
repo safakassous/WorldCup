@@ -1,11 +1,14 @@
 <div class="container ">
-
+        <hr class="hr">
+        <h2 class="text-center">LISTE DES BILLETS</h2>
+        <hr class="hr">
     <div class="row">
+           
         <div class="col-sm-6" *ngFor="let billet of billets">
             <a class="idB" href="http://localhost:4200/paiement/{{billet.idBillet}}">
 
                 <div class="card-group">
-                    <div class="card" style="background-image: url('../../../../assets/billet1.png');">
+                    <div class="card" style="background-image: url('../../../../assets/billet1.PNG');">
                         <div class="card-body">
                             <h5 class="card-title">{{billet.categorieBillet}}</h5>
                             <h6 class="card-text">{{billet.prixBillet}} dt </h6>

@@ -22,7 +22,7 @@
             </div>
 
             <div class="form-group col-6">
-                <label for="prenom">Votre prenom :</label>
+                <label for="prenom">Votre prénom :</label>
                 <input type="text" name="prenom" id="prenom" formControlName="prenom" class="form-control">
                 <div *ngIf="prenom?.touched && prenom?.invalid">
                     <small *ngIf="prenom?.errors?.required" class="text-danger">Le prénom est requis<br></small>
@@ -35,7 +35,7 @@
 
         <div class="form-row">
             <div class="form-group col">
-                <label for="numcarte">Numero de votre carte bancaire :</label>
+                <label for="numcarte">Numéro de votre carte bancaire :</label>
                 <input type="text" name="numcarte" id="numcarte" formControlName="numcarte" class="form-control">
                 <div *ngIf="numcarte?.touched && numcarte?.invalid">
                     <small *ngIf="numcarte?.errors?.required" class="text-danger">Le numéro de la carte est
@@ -63,20 +63,20 @@
         </div>
         <div class="form-row">
             <div class="form-group col">
-                <label for="e_mail">Votre email :</label>
+                <label for="e_mail">Votre E-mail :</label>
                 <input type="text" name="e_mail" id="e_mail" formControlName="e_mail" class="form-control">
                 <div *ngIf="e_mail?.touched && e_mail?.invalid">
-                    <small *ngIf="e_mail?.errors?.required" class="text-danger">L'email est requis<br></small>
-                    <small *ngIf="e_mail?.errors?.email" class="text-danger"> L'email est invalide<br></small>
+                    <small *ngIf="e_mail?.errors?.required" class="text-danger">L'E-mail est requis<br></small>
+                    <small *ngIf="e_mail?.errors?.email" class="text-danger"> L'E-mail est invalide<br></small>
                 </div>
             </div>
             <div class="form-group col">
                 <label for="dateexp">La date d'expiration de votre carte bancaire :</label>
                 <input type="date" name="dateexp" id="dateexp" formControlName="dateexp" class="form-control">
                 <div *ngIf="dateexp?.touched && dateexp?.invalid">
-                    <small *ngIf="dateexp?.errors?.required" class="text-danger">La date d'exprissation est
+                    <small *ngIf="dateexp?.errors?.required" class="text-danger">La date d'expiration est
                         requise<br></small>
-                    <small *ngIf="dateexp?.errors?.email" class="text-danger"> La date d'exprissation est
+                    <small *ngIf="dateexp?.errors?.email" class="text-danger"> La date d'expiration est
                         invalide<br></small>
                 </div>
             </div>
@@ -84,7 +84,7 @@
 
         <div class="form-row">
             <div class="form-group col">
-                <input type="submit" value="Payer" [disabled]="addAcheteurForm.invalid" class="btn btn-primary">
+                <button type="submit"  [disabled]="addAcheteurForm.invalid" class="btn btn1">Payer</button>
             </div>
         </div>
     </form>
@@ -111,7 +111,7 @@
             </div>
             <br>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-dark" >CONFIRMER</button>
+                <button type="submit" class="btn btn1" >CONFIRMER</button>
                 <button type="button" class="btn btn-danger" (click)="modal.dismiss()">FERMER</button>
             </div>
         </form>

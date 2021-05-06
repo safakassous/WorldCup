@@ -36,7 +36,7 @@ public class ImageUploadController {
   @Autowired
 
     ImageRepository imageRepository;
-    Joueur j;
+    
 
 
     @PostMapping("/upload/{id}")
