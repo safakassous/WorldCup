@@ -24,6 +24,7 @@ import { AddAcheteurComponent } from './components/add-acheteur/add-acheteur.com
 import { PaiementBilletComponent } from './components/paiement-billet/paiement-billet.component';
 
 import { ToastrModule } from 'ngx-toastr';
+import { Page404Component } from './components/page404/page404.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { ToastrModule } from 'ngx-toastr';
     ListJoueurComponent,
     ListEquipeComponent,
     AddEquipeComponent,
-    BilletListComponent
+    BilletListComponent,
+    Page404Component
 
   ],
   imports: [

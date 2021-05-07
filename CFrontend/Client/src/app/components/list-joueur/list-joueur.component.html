@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="showAdminBoard">
     <hr class="hr">
     <h2 class="text-center">LISTE DES JOUEURS</h2>
     <hr class="hr">
@@ -104,3 +104,9 @@
 </div>
 <br>
 <br>
+<div *ngIf="!showAdminBoard" >
+    <!-- <app-page404></app-page404> -->
+    
+    <meta http-equiv="refresh" content="0; url=http://localhost:4200/Page404">
+  </div>
+  

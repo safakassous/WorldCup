@@ -6,7 +6,7 @@
   <h3>Données de transaction: un billet de {{billet.categorieBillet}} pour un prix de  {{billet.prixBillet}} dt</h3>
   </div-->     
 
-  <div class="col-md-6" >
+  <div class="col-md-6" *ngIf="!isLoggedIn" >
     <hr class="hr">
     <h2 class="text-center">FORMULAIRE DE PAIEMENT</h2>
     <hr class="hr">
@@ -32,3 +32,9 @@
     </form>
 
   </div>
+  <div *ngIf="!isLoggedIn" >
+    <!-- <app-page404></app-page404> -->
+    
+    <meta http-equiv="refresh" content="0; url=http://localhost:4200/Page404">
+  </div>
+  

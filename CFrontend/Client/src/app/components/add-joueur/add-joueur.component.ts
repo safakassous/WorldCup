@@ -6,6 +6,7 @@ import { Joueur } from './../../models/joueur';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-add-joueur',
@@ -24,9 +25,13 @@ export class AddJoueurComponent implements OnInit {
   selectedPoste = '';
   selectedEquipe = '';
   equipes:any
+  private roles: string[] = [];
+  showAdminBoard = false;
+  showUserBoard = false;
+  isLoggedIn = false;
 
 
-  constructor(private fb: FormBuilder, private joueurService: AddJoueurService, private equipeService:EquipeService,private router: Router) {
+  constructor(private fb: FormBuilder, private tokenStorageService: TokenStorageService, private joueurService: AddJoueurService, private equipeService:EquipeService,private router: Router) {
     let formControls = {
       nom: new FormControl('', [
         Validators.required,
@@ -58,6 +63,15 @@ export class AddJoueurComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showUserBoard = this.roles.includes('ROLE_USER');
+
+    }
     this.equipes = this.equipeService.getEquipes().subscribe(data =>{this.equipes = data} );
 
   }
