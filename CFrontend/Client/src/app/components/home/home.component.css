@@ -5,9 +5,9 @@
     background-size: 100%;
 } */
 .bg-img{
-    min-height: 92vh;
+    min-height: 93vh;
     width: 100%;
-   background: url('../../../assets/back.gif') no-repeat center center fixed;
+   background: url('../../../assets/back.png') no-repeat center center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;

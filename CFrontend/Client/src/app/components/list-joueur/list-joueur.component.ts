@@ -5,6 +5,7 @@ import { ListJoueurService } from './../../_services/list-joueur.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { isExternalModuleNameRelative } from 'typescript';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-list-joueur',
@@ -28,7 +29,12 @@ export class ListJoueurComponent implements OnInit {
   retrievedLogo: any;
   term: any;
   
-  constructor(private modalService: NgbModal, private fb: FormBuilder, private equipeService: EquipeService, private joueurService: ListJoueurService) {
+  private roles: string[] = [];
+  showAdminBoard = false;
+  showUserBoard = false;
+  isLoggedIn = false;
+
+  constructor(private modalService: NgbModal,private tokenStorageService: TokenStorageService, private fb: FormBuilder, private equipeService: EquipeService, private joueurService: ListJoueurService) {
     let formControls = {
       nom: new FormControl('', [
         Validators.required,
@@ -52,6 +58,15 @@ export class ListJoueurComponent implements OnInit {
   get equipe() { return this.editJoueurForm.get('equipe') }
 
   ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showUserBoard = this.roles.includes('ROLE_USER');
+
+    }
     this.equipes = this.equipeService.getEquipes().subscribe(data => { this.equipes = data });
 
     let tab = new Array();

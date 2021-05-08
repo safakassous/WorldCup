@@ -25,6 +25,7 @@ import { PaiementBilletComponent } from './components/paiement-billet/paiement-b
 
 import { ToastrModule } from 'ngx-toastr';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Page404Component } from './components/page404/page404.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ListJoueurComponent,
     ListEquipeComponent,
     AddEquipeComponent,
-    BilletListComponent
+    BilletListComponent,
+    Page404Component
 
   ],
   imports: [

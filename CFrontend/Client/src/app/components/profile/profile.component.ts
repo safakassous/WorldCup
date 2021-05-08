@@ -14,6 +14,10 @@ export class ProfileComponent implements OnInit {
   currentUser: any;
   User: any;
   user: any;
+  private roles: string[] = [];
+  showAdminBoard = false;
+  showUserBoard = false;
+  isLoggedIn = false;
 
   // tslint:disable-next-line:max-line-length
   constructor(private token: TokenStorageService, private userService: UserService, private fb: FormBuilder, private modalService: NgbModal ) { }
@@ -22,6 +26,15 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.isLoggedIn = !!this.token.getToken();
+    if (this.isLoggedIn) {
+      const user = this.token.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showUserBoard = this.roles.includes('ROLE_USER');
+
+    }
     this.currentUser = this.token.getUser();
     const id = this.currentUser.id;
     this.User = this.userService.getUserbyId(id).subscribe(data => {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/_services/user.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-board-admin',
@@ -14,8 +15,13 @@ export class BoardAdminComponent implements OnInit {
   users: any;
   user: any;
   term: any;
+  private roles: string[] = [];
+  showAdminBoard = false;
+  showUserBoard = false;
+  isLoggedIn = false;
 
-  constructor(private userService: UserService, private fb: FormBuilder, private modalService: NgbModal) {
+
+  constructor(private userService: UserService, private tokenStorageService: TokenStorageService, private fb: FormBuilder, private modalService: NgbModal) {
     this.editUserForm = this.fb.group({
       nom: new FormControl('', [
         Validators.required
@@ -74,6 +80,15 @@ export class BoardAdminComponent implements OnInit {
   }
   // tslint:disable-next-line:typedef
   ngOnInit() {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showUserBoard = this.roles.includes('ROLE_USER');
+
+    }
     this.userService.getAdminBoard().subscribe(
       data => {
         // tslint:disable-next-line:no-shadowed-variable
@@ -103,6 +118,7 @@ export class BoardAdminComponent implements OnInit {
 onSubmit(id: any) {
   const data = this.editUserForm.value;
   console.log(data);
+  console.log(id);
   this.userService.updateUser(id, data).subscribe(
    res => {
        console.log("yes");

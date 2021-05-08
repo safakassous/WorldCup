@@ -1,5 +1,5 @@
 nav{
-    margin-top: 0.5px;
+    margin-top: 0px;
     background-color: #ffc727;
 }
 
@@ -61,4 +61,10 @@ nav{
 .btn:hover {
     background-color: #1A5276;
     color: white;
+}
+.im {
+   display: inline;
+    max-width: 2.5% !important;
+   
+
 }

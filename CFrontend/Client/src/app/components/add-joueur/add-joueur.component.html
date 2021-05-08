@@ -1,4 +1,4 @@
-<div class="col-md-6">
+<div class="col-md-6" *ngIf="showAdminBoard">
     <hr class="hr">
     <h2 class="text-center">NOUVEAU JOUEUR</h2>
     <hr class="hr">
@@ -61,3 +61,8 @@
     </div>
 </div>
 <!-- [disabled]="addJoueurForm.invalid" -->
+<div *ngIf="!showAdminBoard" >
+    <!-- <app-page404></app-page404> -->
+    
+    <meta http-equiv="refresh" content="0; url=http://localhost:4200/Page404">
+  </div>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="showAdminBoard" >
     <hr>
     <h2 class="text-center">LISTE DES UTILISATEURS</h2>
     <hr>
@@ -28,8 +28,7 @@
                 <div (click)="supprimer(user.id)" class="trash"> <i class="fa fa-trash" aria-hidden="true"></i></div>
               
             </td>
-          </tr>
-          <ng-template #editUserModal let-modal>
+            <ng-template #editUserModal let-modal>
               <div class="modal-header">
                 <h5 class="modal-title" id="editUserModal">MODIFIER UTILISATEUR</h5>
                 <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
@@ -102,13 +101,23 @@
                 </form>
               </div>
             </ng-template>
+          </tr>
+         
          
         </table>
-     
+        
+        
+
     
 
       
    
   </div>
 
+</div>
+
+<div *ngIf="!showAdminBoard" >
+  <!-- <app-page404></app-page404> -->
+  
+  <meta http-equiv="refresh" content="0; url=http://localhost:4200/Page404">
 </div>
