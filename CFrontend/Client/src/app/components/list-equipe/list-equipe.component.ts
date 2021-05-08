@@ -20,7 +20,7 @@ export class ListEquipeComponent implements OnInit {
   joueurs: any;
   image: any  
   equipes: any
-
+  term:any
   constructor( private equipeService: EquipeService, private joueurService: ListJoueurService) {
    
   }

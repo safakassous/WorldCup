@@ -24,6 +24,7 @@ import { AddAcheteurComponent } from './components/add-acheteur/add-acheteur.com
 import { PaiementBilletComponent } from './components/paiement-billet/paiement-billet.component';
 
 import { ToastrModule } from 'ngx-toastr';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     NgbModule,
     ToastrModule.forRoot(),
+    Ng2SearchPipeModule,
 
   ],
   providers: [authInterceptorProviders],

@@ -2,6 +2,10 @@
     <hr class="hr">
     <h2 class="text-center">LISTE DES EQUIPES</h2>
     <hr class="hr">
+    <br><br>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Chercher" [(ngModel)]="term">
+    </div>
     <div *ngFor="let equipe of equipes">
         <div class="row">
             <img class=" logo" [src]=equipe.retrievedLogo>
@@ -10,7 +14,7 @@
 
         </div>
         <div class="row">
-            <div class="card" *ngFor="let joueur of equipe.joueurs">
+            <div class="card" *ngFor="let joueur of equipe.joueurs | filter:term">
                 <img class="card-img-top imageJoueur" *ngIf="joueur.idImage==1" [src]=joueur.retrievedImage>
                 <img class="card-img-top  imageJoueur" *ngIf="joueur.idImage==0" src="../../../../assets/profil.png">
                 <div class="card-body">

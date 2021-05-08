@@ -2,6 +2,10 @@
     <hr>
     <h2 class="text-center">LISTE DES UTILISATEURS</h2>
     <hr>
+    <br><br>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Chercher" [(ngModel)]="term">
+    </div>
   <div class="row">
 
       <table id="customers">
@@ -13,7 +17,7 @@
             <th></th>
             <th></th>
           </tr>
-          <tr *ngFor="let user of users" >
+          <tr *ngFor="let user of users  | filter:term " >
             <td>{{user.nom}}  </td>
             <td>{{user.prenom}}</td>
             <td>{{user.dateN}}</td>

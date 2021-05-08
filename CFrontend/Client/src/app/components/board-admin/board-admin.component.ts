@@ -13,6 +13,7 @@ export class BoardAdminComponent implements OnInit {
   editUserForm: FormGroup;
   users: any;
   user: any;
+  term: any;
 
   constructor(private userService: UserService, private fb: FormBuilder, private modalService: NgbModal) {
     this.editUserForm = this.fb.group({

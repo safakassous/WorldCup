@@ -26,7 +26,8 @@ export class ListJoueurComponent implements OnInit {
   retrieveLogoResonse: any;
   base64DataLogo: any;
   retrievedLogo: any;
-
+  term: any;
+  
   constructor(private modalService: NgbModal, private fb: FormBuilder, private equipeService: EquipeService, private joueurService: ListJoueurService) {
     let formControls = {
       nom: new FormControl('', [
