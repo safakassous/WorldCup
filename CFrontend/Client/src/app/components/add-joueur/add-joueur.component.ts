@@ -24,14 +24,14 @@ export class AddJoueurComponent implements OnInit {
   name: any;
   selectedPoste = '';
   selectedEquipe = '';
-  equipes:any
+  equipes: any
   private roles: string[] = [];
   showAdminBoard = false;
   showUserBoard = false;
   isLoggedIn = false;
 
 
-  constructor(private fb: FormBuilder, private tokenStorageService: TokenStorageService, private joueurService: AddJoueurService, private equipeService:EquipeService,private router: Router) {
+  constructor(private fb: FormBuilder, private tokenStorageService: TokenStorageService, private joueurService: AddJoueurService, private equipeService: EquipeService, private router: Router) {
     let formControls = {
       nom: new FormControl('', [
         Validators.required,
@@ -72,12 +72,12 @@ export class AddJoueurComponent implements OnInit {
       this.showUserBoard = this.roles.includes('ROLE_USER');
 
     }
-    this.equipes = this.equipeService.getEquipes().subscribe(data =>{this.equipes = data} );
+    this.equipes = this.equipeService.getEquipes().subscribe(data => { this.equipes = data });
 
   }
   selectChangePoste(event: any) {
     this.selectedPoste = event.target.value;
-    
+
   }
   selectChangeEquipe(event: any) {
     this.selectedEquipe = event.target.value;
@@ -85,57 +85,32 @@ export class AddJoueurComponent implements OnInit {
 
   addJoueur() {
     let data = this.addJoueurForm.value;
-   
 
+    if (this.addJoueurForm.valid) {
       let joueur: any
-    if (this.selectedFile)
-      joueur = new Joueur(data.nom, data.prenom, data.poste,data.equipe, 1)
-    else
-      joueur = new Joueur(data.nom, data.prenom, data.poste,data.equipe, 0)
-    console.log(joueur)
-  
-    this.joueurService.addJoueur(joueur, this.selectedEquipe).subscribe(
-      res => {
-        console.log(res);
-        //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
-        const uploadImageData = new FormData();
-        uploadImageData.append('imageFile', this.selectedFile);
+      if (this.selectedFile)
+        joueur = new Joueur(data.nom, data.prenom, data.poste, data.equipe, 1)
+      else
+        joueur = new Joueur(data.nom, data.prenom, data.poste, data.equipe, 0)
+      console.log(joueur)
 
-        //Make a call to the Spring Boot Application to save the image
-        let id_joueur = res.id
-        this.joueurService.addImage(uploadImageData, id_joueur).subscribe((response) => {});
-        this.router.navigateByUrl('/listJoueurs');
-      },
-      err => {
-        console.log(err);
-      }
-    );
-  
-    
+      this.joueurService.addJoueur(joueur, this.selectedEquipe).subscribe(
+        res => {
+          console.log(res);
+          //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
+          const uploadImageData = new FormData();
+          uploadImageData.append('imageFile', this.selectedFile);
 
+          //Make a call to the Spring Boot Application to save the image
+          let id_joueur = res.id
+          this.joueurService.addImage(uploadImageData, id_joueur).subscribe((response) => { });
+          this.router.navigateByUrl('/listJoueurs');
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
 
-    // let joueur: any
-    // if (this.selectedFile)
-    //   joueur = new Joueur(data.nom, data.prenom, data.poste,data.equipe, 1)
-    // else
-    //   joueur = new Joueur(data.nom, data.prenom, data.poste,data.equipe, 0)
-    
-      
-    // this.joueurService.addJoueur(joueur).subscribe(
-    //   res => {
-    //     //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
-    //     const uploadImageData = new FormData();
-    //     uploadImageData.append('imageFile', this.selectedFile);
-
-    //     //Make a call to the Spring Boot Application to save the image
-    //     let id_joueur = res.idJoueur
-    //     this.joueurService.addImage(uploadImageData, id_joueur).subscribe((response) => {});
-    //     this.router.navigateByUrl('/listJoueurs');
-    //   },
-    //   err => {
-    //     console.log(err)
-    //   }
-
-    // )
   }
 }
