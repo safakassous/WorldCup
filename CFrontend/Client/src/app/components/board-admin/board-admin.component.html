@@ -4,7 +4,7 @@
     <hr>
     <br><br>
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="Chercher" [(ngModel)]="term">
+        <input type="text" class="form-control" style="border-left: 5px solid #1A5276; border-color: #1A5276;" placeholder="Chercher" [(ngModel)]="term">
     </div>
   <div class="row">
 
@@ -95,7 +95,7 @@
                   </div>
       
                   <div class="modal-footer">
-                    <button type="submit" class="btn btn1">ENREGISTRER</button>
+                    <button type="submit" class="btn btn1" [disabled]= "!editUserForm.valid">ENREGISTRER</button>
                     <button type="button" class="btn btn-danger" (click)="modal.dismiss()">FERMER</button>
                   </div>
                 </form>

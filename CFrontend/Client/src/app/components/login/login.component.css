@@ -68,4 +68,6 @@ input {
         margin-right: 17% !important;
         margin-left: 40%;
 }
-  
+  .lab {
+      font-weight: bold;
+  }

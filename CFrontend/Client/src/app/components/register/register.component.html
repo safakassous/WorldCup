@@ -13,7 +13,7 @@
             Le nom d'utilisateur est déjà utilisé !
           </div>
           <div class="form-group">
-            <label for="nom">Nom :</label>
+            <label for="nom" class="lab">Nom :</label>
             <input
               type="text"
               class="form-control"
@@ -28,7 +28,7 @@
                 </div>
         </div>
         <div class="form-group">
-            <label for="prenom">Prénom :</label>
+            <label for="prenom" class="lab">Prénom :</label>
             <input
               type="text"
               class="form-control"
@@ -44,7 +44,7 @@
           </div>
              
     <div class="form-group">
-          <label for="dateN">Date de naissance :</label>
+          <label for="dateN" class="lab">Date de naissance :</label>
           <input
             type="date"
             class="form-control"
@@ -60,7 +60,7 @@
     </div>
  
   <div class="form-group">
-    <label for="username">Nom d'utilisateur :</label>
+    <label for="username" class="lab">Nom d'utilisateur :</label>
     <input
       type="text"
       class="form-control"
@@ -83,7 +83,7 @@
   </div>
 
   <div class="form-group">
-    <label for="password">Mot de passe :</label>
+    <label for="password" class="lab">Mot de passe :</label>
     <input
       type="password"
       class="form-control"
@@ -102,7 +102,7 @@
   </div>
 
   <button type="button"  class="btn" [routerLink]="['/login']"><b>DÉJA INSCRIT ? </b></button>
-  <button class="btn bt2" name="btn" >INSCRIPTION</button>
+  <button class="btn bt2" name="btn" [disabled]= "!f.form.valid" >INSCRIPTION</button>
   
 
 
