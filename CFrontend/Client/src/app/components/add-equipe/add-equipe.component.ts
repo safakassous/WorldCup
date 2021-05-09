@@ -26,10 +26,11 @@ export class AddEquipeComponent implements OnInit {
   showAdminBoard = false;
   showUserBoard = false;
   isLoggedIn = false;
+  formControls:any
 
 
   constructor(private fb: FormBuilder ,private tokenStorageService: TokenStorageService,  private equipeService:EquipeService,private router: Router) {
-    let formControls = {
+    this.formControls = {
       nom: new FormControl('', [
         Validators.required,
       ]),
@@ -38,7 +39,8 @@ export class AddEquipeComponent implements OnInit {
       ]),
     }
 
-    this.addEquipeForm = this.fb.group(formControls)
+    this.addEquipeForm = this.fb.group(this.formControls)
+    console.log(this.formControls)
   }
 
   get nom() { return this.addEquipeForm.get('nom') }
@@ -50,6 +52,10 @@ export class AddEquipeComponent implements OnInit {
   //Gets called when the user selects an image
   public onFileChanged(event: any) {
     this.selectedFile = event.target.files[0];
+    this.addEquipeForm.patchValue({
+      equipe: this.selectedFile
+    });
+    this.addEquipeForm.get('equipe')?.updateValueAndValidity
   }
 
   ngOnInit(): void {
@@ -68,7 +74,9 @@ export class AddEquipeComponent implements OnInit {
  
 
   addEquipe() {
-    let data = this.addEquipeForm.value;
+    let data = this.addEquipeForm.value;    
+
+    if (this.addEquipeForm.valid) {
   
     this.equipeService.addEquipe(data).subscribe(
       res => {
@@ -79,14 +87,17 @@ export class AddEquipeComponent implements OnInit {
 
         //Make a call to the Spring Boot Application to save the image
         let id_equipe = res.id
-        this.equipeService.addLogo(uploadImageData, id_equipe).subscribe((response) => {});
+        this.equipeService.addLogo(uploadImageData, id_equipe).subscribe((response) => {
+          console.log(response)
+        });
         this.router.navigateByUrl('/listEquipes');
+       
       },
       err => {
         console.log(err);
       }
     );
-  
+    }
     
   }
 }
