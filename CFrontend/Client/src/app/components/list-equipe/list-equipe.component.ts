@@ -3,6 +3,7 @@ import { EquipeService } from './../../_services/equipe.service';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-list-equipe',
@@ -20,13 +21,27 @@ export class ListEquipeComponent implements OnInit {
   joueurs: any;
   image: any  
   equipes: any
+  term:any
+  private roles: string[] = [];
+  showAdminBoard = false;
+  showUserBoard = false;
+  isLoggedIn = false;
 
-  constructor( private equipeService: EquipeService, private joueurService: ListJoueurService) {
+  constructor( private equipeService: EquipeService, private joueurService: ListJoueurService, private tokenStorageService: TokenStorageService) {
    
   }
   
 
   ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showUserBoard = this.roles.includes('ROLE_USER');
+
+    }
     this.equipes = this.equipeService.getEquipes().subscribe(data => { this.equipes = data });
 
     let tab = new Array();

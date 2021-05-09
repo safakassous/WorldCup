@@ -62,4 +62,12 @@ input {
     .alert {
         margin-top:2%;
     }
-  
+    .im{
+        display: inline;
+        max-width: 20% !important;
+        margin-right: 17% !important;
+        margin-left: 40%;
+}
+  .lab {
+      font-weight: bold;
+  }

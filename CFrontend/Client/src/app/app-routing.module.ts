@@ -12,6 +12,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
 import { BilletListComponent } from './components/billet-list/billet-list.component';
 import { AddAcheteurComponent } from './components/add-acheteur/add-acheteur.component';
+import { Page404Component } from './components/page404/page404.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'listEquipes', component: ListEquipeComponent },
   {path: 'paiement/:id', component : AddAcheteurComponent},
   {path: 'addAcheteur', component : AddAcheteurComponent},
+  {path: 'Page404', component: Page404Component}
 
 
 
@@ -39,5 +41,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-

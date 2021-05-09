@@ -1,9 +1,8 @@
-<div class="container ">
+<div class="container " *ngIf="isLoggedIn" >
         <hr class="hr">
         <h2 class="text-center">LISTE DES BILLETS</h2>
         <hr class="hr">
-    <div class="row">
-           
+    <div class="row">      
         <div class="col-sm-6" *ngFor="let billet of billets">
             <a class="idB" href="http://localhost:4200/paiement/{{billet.idBillet}}">
 
@@ -22,4 +21,9 @@
 
     </div>
 
+</div>
+<div *ngIf="!isLoggedIn" >
+    <!-- <app-page404></app-page404> -->
+    
+    <meta http-equiv="refresh" content="0; url=http://localhost:4200/Page404">
 </div>

@@ -1,7 +1,11 @@
-<div class="container">
+<div class="container" *ngIf="showAdminBoard" >
     <hr>
     <h2 class="text-center">LISTE DES UTILISATEURS</h2>
     <hr>
+    <br><br>
+    <div class="form-group">
+        <input type="text" class="form-control" style="border-left: 5px solid #1A5276; border-color: #1A5276;" placeholder="Chercher" [(ngModel)]="term">
+    </div>
   <div class="row">
 
       <table id="customers">
@@ -13,7 +17,7 @@
             <th></th>
             <th></th>
           </tr>
-          <tr *ngFor="let user of users" >
+          <tr *ngFor="let user of users  | filter:term " >
             <td>{{user.nom}}  </td>
             <td>{{user.prenom}}</td>
             <td>{{user.dateN}}</td>
@@ -24,8 +28,7 @@
                 <div (click)="supprimer(user.id)" class="trash"> <i class="fa fa-trash" aria-hidden="true"></i></div>
               
             </td>
-          </tr>
-          <ng-template #editUserModal let-modal>
+            <ng-template #editUserModal let-modal>
               <div class="modal-header">
                 <h5 class="modal-title" id="editUserModal">MODIFIER UTILISATEUR</h5>
                 <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
@@ -92,19 +95,29 @@
                   </div>
       
                   <div class="modal-footer">
-                    <button type="submit" class="btn btn1">ENREGISTRER</button>
+                    <button type="submit" class="btn btn1" [disabled]= "!editUserForm.valid">ENREGISTRER</button>
                     <button type="button" class="btn btn-danger" (click)="modal.dismiss()">FERMER</button>
                   </div>
                 </form>
               </div>
             </ng-template>
+          </tr>
+         
          
         </table>
-     
+        
+        
+
     
 
       
    
   </div>
 
+</div>
+
+<div *ngIf="!showAdminBoard" >
+  <!-- <app-page404></app-page404> -->
+  
+  <meta http-equiv="refresh" content="0; url=http://localhost:4200/Page404">
 </div>

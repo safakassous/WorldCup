@@ -1,6 +1,6 @@
 
   <nav class="navbar navbar-expand-sm  navbar-dark " *ngIf="isLoggedIn">
-
+    <img src="/../../../assets/logo.png" class="im"> 
     <ul class="navbar-nav" >
         <li>
             <div class="title">WORLD CUP</div>
@@ -13,17 +13,17 @@
             EQUIPES
           </button>
           <div class="dropdown-content">
-            <a href="/addEquipe">Nouvelle équipe</a>
+            <a href="/addEquipe" *ngIf="showAdminBoard">Nouvelle équipe</a>
             <a href="/listEquipes">Liste équipes</a>            
           </div>
         </div>
       </li>
-      <li class="nav-item">  
+      <li class="nav-item" *ngIf="showAdminBoard">  
         <div class="dropdown">
           <button class="m-1 btn ">
             JOUEURS
           </button>
-          <div class="dropdown-content">
+          <div class="dropdown-content" >
             <a href="/addJoueur">Nouveau joueur</a>
             <a href="/listJoueurs">Liste joueurs</a>            
           </div>

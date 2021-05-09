@@ -1,4 +1,4 @@
-<div class="col-md-6" *ngIf="currentUser" >
+<div class="col-md-6" *ngIf="currentUser; isLoggedIn" >
   <div class="card">
      <img src="../../../../assets/profil.png">
    <h3 class="text-center">
@@ -15,4 +15,9 @@
   <p>{{User.dateN}}</p> 
   <strong class="label" >Rôles :</strong>
   <p *ngFor="let role of currentUser.roles">{{role}}</p> 
+  </div>
+  <div *ngIf="!isLoggedIn" >
+    <!-- <app-page404></app-page404> -->
+    
+    <meta http-equiv="refresh" content="0; url=http://localhost:4200/Page404">
   </div>
