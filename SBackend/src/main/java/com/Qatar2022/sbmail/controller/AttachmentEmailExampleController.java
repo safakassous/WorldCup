@@ -36,16 +36,12 @@ public class AttachmentEmailExampleController {
 
         helper.setText(a.getCorps_mail());
          
-       String path1 = "C:\\Users\\safa kassous\\Desktop\\helo.txt";
        // String path2 = "/home/tran/Downloads/readme.zip";
  
         // Attachment 1
-        FileSystemResource file1 = new FileSystemResource(new File(path1));
-        helper.addAttachment("Facture", file1);
+      //  FileSystemResource file1 = new FileSystemResource(new File(path1));
+      //  helper.addAttachment("Facture", file1);
  
-        // Attachment 2
-        //  FileSystemResource file2 = new FileSystemResource(new File(path2));
-        //   helper.addAttachment("Readme", file2);
  
         emailSender.send(message);
  

@@ -1,13 +1,12 @@
 package com.Qatar2022.models;
 
 import java.sql.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Acheteur {
 	   @Id

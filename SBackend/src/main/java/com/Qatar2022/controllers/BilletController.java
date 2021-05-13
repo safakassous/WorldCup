@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-
 import com.Qatar2022.models.Billet;
 import com.Qatar2022.repository.BilletRepository;
 
@@ -43,7 +41,6 @@ import com.Qatar2022.repository.BilletRepository;
 	public Billet getBilletById(@PathVariable(value = "id") Long Id) {
 	    return billetRepo.findById(Id).orElseThrow(null);
 	}
-
 
 	@PutMapping("/billet/{id}")
 	public Billet updateBillet(@PathVariable(value = "id") Long Id, @RequestBody Billet billetDetails) {
