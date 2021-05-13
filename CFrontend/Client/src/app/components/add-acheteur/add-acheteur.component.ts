@@ -19,65 +19,65 @@ export class AddAcheteurComponent implements OnInit {
   // tslint:disable-next-line:max-line-length
   constructor(private modalService: NgbModal, private route: ActivatedRoute, private toastr: ToastrService, private fb: FormBuilder, private acheteurService: AcheteurService, private router: Router, private service: BilletService) {
     const formControls = {
-      nom : new FormControl('', [
+      nom: new FormControl('', [
         Validators.required,
         Validators.pattern('[a-z,A-Z.\'-]+')
       ]),
-      prenom : new FormControl('', [
+      prenom: new FormControl('', [
         Validators.required,
         Validators.pattern('[a-z,A-Z.\'-]+')
       ]),
-      numcarte : new FormControl('', [
+      numcarte: new FormControl('', [
         Validators.required,
         Validators.pattern('[0-9]+'),
         Validators.minLength(8),
         Validators.maxLength(8)
       ]),
-      cvc2 : new FormControl('', [
+      cvc2: new FormControl('', [
         Validators.required,
         Validators.pattern('[0-9]+'),
         Validators.minLength(3),
         Validators.maxLength(4)
       ]),
-      e_mail : new FormControl('', [
+      e_mail: new FormControl('', [
         Validators.required,
         Validators.email
       ]),
-      dateexp : new FormControl('', [
+      dateexp: new FormControl('', [
         Validators.required
       ]),
     };
     this.addAcheteurForm = this.fb.group(formControls);
 
     const formControlsCode = {
-    code : new FormControl('', [
-      Validators.required
-      // Validators.minLength(7),
-      // Validators.maxLength(7)
-    ]),
-   };
+      code: new FormControl('', [
+        Validators.required
+        // Validators.minLength(7),
+        // Validators.maxLength(7)
+      ]),
+    };
     this.confirmForm = this.fb.group(formControlsCode);
   }
-   get nom(){
+  get nom() {
     return this.addAcheteurForm.get('nom');
   }
-  get prenom(){
+  get prenom() {
     return this.addAcheteurForm.get('prenom');
   }
-  get numcarte(){
+  get numcarte() {
     return this.addAcheteurForm.get('numcarte');
   }
-  get cvc2(){
+  get cvc2() {
     return this.addAcheteurForm.get('cvc2');
   }
-  get e_mail(){
+  get e_mail() {
     return this.addAcheteurForm.get('e_mail');
   }
-  get dateexp(){
+  get dateexp() {
     return this.addAcheteurForm.get('dateexp');
   }
 
-  get code(){
+  get code() {
     return this.addAcheteurForm.get('code');
   }
 
@@ -104,32 +104,32 @@ export class AddAcheteurComponent implements OnInit {
     this.r = Math.random().toString(36).substring(7);
 
     const body = {
-         mail_acheteur : data.e_mail,
-         corps_mail : 'Cher client  ' + data.nom + '  ' + data.prenom + '  Voici votre code de confirmation de transaction :   ' + this.r
-         };
+      mail_acheteur: data.e_mail,
+      corps_mail: 'Cher client  ' + data.nom + '  ' + data.prenom + '  Voici votre code de confirmation de transaction :   ' + this.r
+    };
     this.acheteurService.addTransaction(body).subscribe(
 
-          );
+    );
   }
 
   // tslint:disable-next-line:typedef
-  addAcheteur(){
+  addAcheteur() {
     const data = this.addAcheteurForm.value;
 
 
-    if (this.r === this.confirmForm.value.code){
-     this.acheteurService.addAcheteur(data).subscribe(
-         res => {
-           console.log(res);
-           this.modalService.dismissAll();
-           this.toastr.success('Paiement effectué avec succès');
-           this.router.navigate(['/billets']);
-         },
-         err => {
+    if (this.r === this.confirmForm.value.code) {
+      this.acheteurService.addAcheteur(data).subscribe(
+        res => {
+          console.log(res);
+          this.modalService.dismissAll();
+          this.toastr.success('Paiement effectué avec succès');
+          this.router.navigate(['/billets']);
+        },
+        err => {
           this.toastr.error('Code incorrect');
           console.log(err);
-       }
-     );
+        }
+      );
 
     }
   }

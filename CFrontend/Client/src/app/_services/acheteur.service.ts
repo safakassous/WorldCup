@@ -6,18 +6,18 @@ import { Acheteur } from '../models/acheteur';
   providedIn: 'root'
 })
 export class AcheteurService {
-  private addAcheteurUrl= "http://localhost:5001/api/addAcheteur"
+  private addAcheteurUrl = "http://localhost:5001/api/addAcheteur"
   private addTransactionUrl = "http://localhost:5001/sendAttachmentEmail"
 
-  constructor(private http:HttpClient) {
-  
+  constructor(private http: HttpClient) {
+
   }
 
-  addAcheteur(acheteur: Acheteur){
-    return this.http.post<any>(this.addAcheteurUrl,acheteur);
+  addAcheteur(acheteur: Acheteur) {
+    return this.http.post<any>(this.addAcheteurUrl, acheteur);
   }
 
-  addTransaction(body:any){
-    return this.http.post<any>(this.addTransactionUrl,body);
+  addTransaction(body: any) {
+    return this.http.post<any>(this.addTransactionUrl, body);
   }
 }
